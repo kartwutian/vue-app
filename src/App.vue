@@ -1,21 +1,26 @@
 <template>
     <div id="app">
-        <yd-layout>
+        <m-layout>
+            <section class="m-navbar" slot="top">
 
-            <img class="logo" src="./assets/1.jpg">
-            <router-view/>
-        </yd-layout>
+            </section>
+
+            <router-view ref="view"/>
+            <section class="m-tabbar" slot="bottom"></section>
+        </m-layout>
 
     </div>
 </template>
 
 <script>
     import { Layout } from '@/components/layout'
-    console.log(Layout)
     export default {
         name: 'app',
+        mounted () {
+            // console.log(this.$refs.view)
+        },
         components: {
-           'yd-layout': Layout
+           'm-layout': Layout
         }
     }
 </script>
@@ -33,5 +38,17 @@
     }
     #app .logo{
         margin: 0 auto;
+    }
+    .m-navbar{
+        position: absolute;
+        height: 1rem;
+        width: 100%;
+        background-color: #f00;
+        z-index: 9999;
+    }
+    .m-tabbar{
+        height: 1rem;
+        width: 100%;
+        background-color: #f00;
     }
 </style>
