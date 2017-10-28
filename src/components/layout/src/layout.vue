@@ -2,7 +2,7 @@
     <section class="m-flexview">
         <slot name="top" v-if="showNavbar"></slot>
 
-        <section class="m-scrollview" ref="scrollView" id="scrollView">
+        <section class="m-scrollview" ref="scrollView" id="scrollView" @scroll="scroll()">
             <slot></slot>
         </section>
 
@@ -20,6 +20,16 @@
                 type: Boolean,
                 default: true
             }
+        },
+        methods: {
+            scroll () {
+                this.$store.dispatch('updataScrollView',{
+                    scrollTop: this.$refs.scrollView.scrollTop
+                })
+            }
+        },
+        computed: {
+
         }
     }
 </script>

@@ -1,9 +1,10 @@
 <template>
     <div id="app">
         <m-layout>
-            <section class="m-navbar" slot="top">
-
-            </section>
+            <m-navbar bgcolor="#f36" color="#fff" title="title" fixed slot="top" ref="navbar" :style="styles">
+                <m-navbar-back-icon slot="left">left</m-navbar-back-icon>
+                <div slot="right">right</div>
+            </m-navbar>
 
             <router-view ref="view"/>
             <section class="m-tabbar" slot="bottom"></section>
@@ -14,19 +15,32 @@
 
 <script>
     import { Layout } from '@/components/layout'
+    import { NavBar, NavBarBackIcon, NavBarNextIcon } from '@/components/navbar'
+
     export default {
         name: 'app',
         mounted () {
             // console.log(this.$refs.view)
         },
+        computed: {
+            styles(){
+                return{
+                    opacity: this.$store.getters.scrollTopToOpacity
+                }
+            }
+        },
         components: {
-           'm-layout': Layout
+            'm-layout': Layout,
+            'm-navbar': NavBar,
+            'm-navbar-back-icon': NavBarBackIcon,
+            'm-navbar-next-icon': NavBarNextIcon
         }
     }
 </script>
 
 <style lang="less">
     @import "styles/base";
+    @import "styles/common/font/iconfont.css";
 
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -39,13 +53,7 @@
     #app .logo{
         margin: 0 auto;
     }
-    .m-navbar{
-        position: absolute;
-        height: 1rem;
-        width: 100%;
-        background-color: #f00;
-        z-index: 9999;
-    }
+
     .m-tabbar{
         height: 1rem;
         width: 100%;
