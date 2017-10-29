@@ -1,5 +1,5 @@
 <template>
-    <footer class="yd-tabbar tabbbar-top-line-color" :class="classes" :style="styles">
+    <footer class="m-tabbar tabbbar-top-line-color" :class="classes" :style="styles">
         <slot></slot>
     </footer>
 </template>
@@ -8,7 +8,7 @@
     import {isColor} from '../../../utils/assist';
 
     export default {
-        name: 'yd-tabbar',
+        name: 'm-tabbar',
         props: {
             fixed: Boolean,
             exact: {
@@ -49,7 +49,7 @@
         },
         computed: {
             classes() {
-                return this.fixed ? 'yd-tabbar-fixed' : '';
+                return this.fixed ? 'm-tabbar-fixed' : '';
             },
             styles() {
                 return {
