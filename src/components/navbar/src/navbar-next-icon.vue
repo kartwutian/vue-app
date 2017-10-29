@@ -1,5 +1,5 @@
 <template>
-    <span><slot></slot><i class="m-next-icon" :style="{color: color}"></i></span>
+    <span><slot></slot><i :class="classes" :style="{color: color}"></i></span>
 </template>
 
 <script type="text/babel">
@@ -7,6 +7,10 @@
     export default {
         name: 'm-navbar-next-icon',
         props: {
+            icon: {
+                type: String,
+                default: 'icon-more'
+            },
             color: {
                 validator(value) {
                     if(!value) return true;
@@ -14,6 +18,12 @@
                 },
                 default: '#5C5C5C'
             }
+        },
+        computed: {
+            classes () {
+                return 'vfont ' + this.icon
+            }
         }
+
     }
 </script>

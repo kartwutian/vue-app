@@ -1,9 +1,9 @@
 <template>
     <div id="app">
         <m-layout>
-            <m-navbar bgcolor="#f36" color="#fff" title="title" fixed slot="top" ref="navbar" :style="styles">
-                <m-navbar-back-icon slot="left">left</m-navbar-back-icon>
-                <div slot="right">right</div>
+            <m-navbar bgcolor="#fff" color="#f36" title="title" fixed slot="top" ref="navbar" :style="styles">
+                <m-navbar-back-icon slot="left"></m-navbar-back-icon>
+                <m-navbar-next-icon slot="right" icon="icon-next"></m-navbar-next-icon>
             </m-navbar>
 
             <router-view ref="view"/>
@@ -40,7 +40,6 @@
 
 <style lang="less">
     @import "styles/base";
-    @import "styles/common/font/iconfont.css";
 
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
