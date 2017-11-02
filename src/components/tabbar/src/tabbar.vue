@@ -5,7 +5,6 @@
 </template>
 
 <script type="text/babel">
-    import {isColor} from '../../../utils/assist';
 
     export default {
         name: 'm-tabbar',
@@ -22,21 +21,21 @@
             activeColor: {
                 validator(value) {
                     if (!value) return true;
-                    return isColor(value);
+                    return $utils.isColor(value);
                 },
                 default: '#09BB07'
             },
             bgcolor: {
                 validator(value) {
                     if (!value) return true;
-                    return isColor(value);
+                    return $utils.isColor(value);
                 },
                 default: '#FFF'
             },
             color: {
                 validator(value) {
                     if (!value) return true;
-                    return isColor(value);
+                    return $utils.isColor(value);
                 },
                 default: '#979797'
             },

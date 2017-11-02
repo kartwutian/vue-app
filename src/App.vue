@@ -8,18 +8,18 @@
 
             <router-view ref="view"/>
 
-            <m-tabbar class="demo-small-pitch" slot="bottom">
-                <m-tabbar-item title="微信" link="/asidebar" active>
+            <m-tabbar class="demo-small-pitch" slot="bottom" ref="tabbar" >
+                <m-tabbar-item @click.native="changeItem" title="微信" link="/" :active="isActive">
                     <i slot="icon" class="vfont icon-weixin"></i>
                     <m-badge slot="badge" type="danger">2</m-badge>
                 </m-tabbar-item>
-                <m-tabbar-item title="通讯录" link="/asidebar">
+                <m-tabbar-item @click.native="changeItem" title="通讯录" link="/friends">
                     <i slot="icon" class="vfont icon-discover"></i>
                 </m-tabbar-item>
-                <m-tabbar-item title="发现" link="/asidebar" dot ref="test">
+                <m-tabbar-item @click.native="changeItem" title="发现" link="/discover" dot>
                     <i slot="icon" class="vfont icon-discover"></i>
                 </m-tabbar-item>
-                <m-tabbar-item title="图片" link="/asidebar">
+                <m-tabbar-item @click.native="changeItem" title="图片" link="/center">
                     <img slot="icon" src="http://static.ydcss.com/ydui/img/logo.png"/>
                 </m-tabbar-item>
             </m-tabbar>
@@ -31,12 +31,18 @@
 <script>
     import { Layout } from '@/components/layout'
     import { NavBar, NavBarBackIcon, NavBarNextIcon } from '@/components/navbar'
-    import {TabBar, TabBarItem} from '@/components/tabbar'
+    import { TabBar, TabBarItem } from '@/components/tabbar'
+    import { Badge } from '@/components/badge'
 
     export default {
         name: 'app',
+        data () {
+            return {
+                isActive: false
+            }
+        },
         mounted () {
-            console.log(this.$refs.test.dot = false)
+            console.log(this.$refs.tabbar)
         },
         computed: {
             styles(){
@@ -45,13 +51,26 @@
                 }
             }
         },
+        methods: {
+            changeItem () {
+
+                this.$refs.tabbar.$children.forEach(function (key,index) {
+                    // if(itemIndex === index){
+                    //     key.active = true
+                    //     return
+                    // }
+                    key.active = false
+                } )
+            }
+        },
         components: {
             'm-layout': Layout,
             'm-navbar': NavBar,
             'm-navbar-back-icon': NavBarBackIcon,
             'm-navbar-next-icon': NavBarNextIcon,
             'm-tabbar': TabBar,
-            'm-tabbar-item': TabBarItem
+            'm-tabbar-item': TabBarItem,
+            'm-badge': Badge
         }
     }
 </script>
@@ -71,9 +90,5 @@
         margin: 0 auto;
     }
 
-    .m-tabbar{
-        height: 1rem;
-        width: 100%;
-        background-color: #f00;
-    }
+
 </style>

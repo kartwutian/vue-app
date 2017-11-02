@@ -49,7 +49,6 @@
             }
         },
         mounted(){
-            $utils.log(this)
         },
         computed: {
             classes() {
