@@ -9,17 +9,17 @@
             <router-view ref="view"/>
 
             <m-tabbar class="demo-small-pitch" slot="bottom" ref="tabbar" >
-                <m-tabbar-item @click.native="changeItem" title="微信" link="/" :active="isActive">
+                <m-tabbar-item @click.native="changeItem(0)" title="微信" link="/" :active="isActive[0]">
                     <i slot="icon" class="vfont icon-weixin"></i>
                     <m-badge slot="badge" type="danger">2</m-badge>
                 </m-tabbar-item>
-                <m-tabbar-item @click.native="changeItem" title="通讯录" link="/friends">
+                <m-tabbar-item @click.native="changeItem(1)" title="通讯录" link="/friends" :active="isActive[1]" >
                     <i slot="icon" class="vfont icon-discover"></i>
                 </m-tabbar-item>
-                <m-tabbar-item @click.native="changeItem" title="发现" link="/discover" dot>
+                <m-tabbar-item @click.native="changeItem(2)" title="发现" link="/discover" dot :active="isActive[2]">
                     <i slot="icon" class="vfont icon-discover"></i>
                 </m-tabbar-item>
-                <m-tabbar-item @click.native="changeItem" title="图片" link="/center">
+                <m-tabbar-item @click.native="changeItem(3)" title="图片" link="/center" :active="isActive[3]">
                     <img slot="icon" src="http://static.ydcss.com/ydui/img/logo.png"/>
                 </m-tabbar-item>
             </m-tabbar>
@@ -34,11 +34,12 @@
     import { TabBar, TabBarItem } from '@/components/tabbar'
     import { Badge } from '@/components/badge'
 
+
     export default {
         name: 'app',
         data () {
             return {
-                isActive: false
+                isActive: [true,false,false,false]
             }
         },
         mounted () {
@@ -52,15 +53,9 @@
             }
         },
         methods: {
-            changeItem () {
-
-                this.$refs.tabbar.$children.forEach(function (key,index) {
-                    // if(itemIndex === index){
-                    //     key.active = true
-                    //     return
-                    // }
-                    key.active = false
-                } )
+            changeItem (index) {
+                this.isActive = [false,false,false,false]
+                this.isActive[index] = true
             }
         },
         components: {
