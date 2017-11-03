@@ -1,29 +1,36 @@
 <template>
 
-  <div class="hello">
-    <m-slider autoplay="3000">
-        <m-slider-item>
-            <a href="http://www.ydcss.com">
-                <img src="http://static.ydcss.com/uploads/ydui/1.jpg">
-            </a>
-        </m-slider-item>
-        <m-slider-item>
-            <a href="http://www.ydcss.com">
-                <img src="http://static.ydcss.com/uploads/ydui/2.jpg">
-            </a>
-        </m-slider-item>
-        <m-slider-item>
-            <a href="http://www.ydcss.com">
-                <img src="http://static.ydcss.com/uploads/ydui/3.jpg">
-            </a>
-        </m-slider-item>
-    </m-slider>
+    <div class="hello">
+        <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/1.jpg" class="test" noBgImage></m-lazyload>
+        <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/1.jpg" class="test" noBgImage></m-lazyload>
+        <m-lazyload data-src="http://img0.imgtn.bdimg.com/it/u=3920398476,1501488149&fm=214&gp=0.jpg" class="test"></m-lazyload>
+        <m-lazyload data-src="http://r1.ykimg.com/0510000059FB3229ADC0B0707701F370" ></m-lazyload>
 
-  </div>
+
+        <!--<m-slider autoplay="3000">-->
+            <!--<m-slider-item>-->
+                <!--<a href="http://www.ydcss.com">-->
+                    <!--<img src="http://static.ydcss.com/uploads/ydui/1.jpg">-->
+                <!--</a>-->
+            <!--</m-slider-item>-->
+            <!--<m-slider-item>-->
+                <!--<a href="http://www.ydcss.com">-->
+                    <!--<img src="http://static.ydcss.com/uploads/ydui/2.jpg">-->
+                <!--</a>-->
+            <!--</m-slider-item>-->
+            <!--<m-slider-item>-->
+                <!--<a href="http://www.ydcss.com">-->
+                    <!--<img src="http://static.ydcss.com/uploads/ydui/3.jpg">-->
+                <!--</a>-->
+            <!--</m-slider-item>-->
+        <!--</m-slider>-->
+
+    </div>
 </template>
 
 <script>
 import { Slider, SliderItem } from '@/components/slider'
+import { Lazyload } from '@/components/Lazyload'
 console.log(Slider)
 console.log(SliderItem)
 export default {
@@ -35,7 +42,8 @@ export default {
     },
     components: {
         'm-slider': Slider,
-        'm-slider-item': SliderItem
+        'm-slider-item': SliderItem,
+        'm-lazyload': Lazyload
     }
 }
 </script>
@@ -61,5 +69,9 @@ export default {
 
     a {
       color: #42b983;
+    }
+    .test{
+        width: 100%;
+        height: 400px;
     }
 </style>

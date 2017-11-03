@@ -8,7 +8,7 @@ import store from './store'
 import fastclick from 'fastclick'
 
 console.log(store)
-
+fastclick.attach(document.body)
 Vue.use(Vuex)
 
 Vue.config.productionTip = false
