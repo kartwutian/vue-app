@@ -1,6 +1,12 @@
 <template>
 
     <div class="hello">
+        <m-bscroll>
+           <div style="height: 100px;">123</div>
+        </m-bscroll>
+
+        <div class="demo" ref="demo" style="transform: translateX(0px);" @click="slider"></div>
+
         <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/1.jpg" class="test" noBgImage></m-lazyload>
         <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/1.jpg" class="test" noBgImage></m-lazyload>
         <m-lazyload data-src="http://img0.imgtn.bdimg.com/it/u=3920398476,1501488149&fm=214&gp=0.jpg" class="test"></m-lazyload>
@@ -31,8 +37,7 @@
 <script>
 import { Slider, SliderItem } from '@/components/slider'
 import { Lazyload } from '@/components/Lazyload'
-console.log(Slider)
-console.log(SliderItem)
+import { BScroll } from '@/components/bscroll'
 export default {
     name: 'HelloWorld',
     data () {
@@ -40,10 +45,24 @@ export default {
           msg: 'Welcome to Your Vue.js App'
         }
     },
+    mounted(){
+
+    },
     components: {
         'm-slider': Slider,
         'm-slider-item': SliderItem,
-        'm-lazyload': Lazyload
+        'm-lazyload': Lazyload,
+        'm-bscroll': BScroll
+    },
+    methods: {
+        transition(el){
+            el.style.cssText = el.style.cssText
+        },
+        slider(){
+            Transform(this.$refs.demo)
+            this.$refs.demo.translateX += 100
+        }
+
     }
 }
 </script>
@@ -73,5 +92,12 @@ export default {
     .test{
         width: 100%;
         height: 400px;
+    }
+    .demo{
+        width: 100px;
+        height: 10px;
+        background-color: #f36;
+        transition: all 2s;
+
     }
 </style>

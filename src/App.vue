@@ -34,6 +34,7 @@
     import { TabBar, TabBarItem } from '@/components/tabbar'
     import { Badge } from '@/components/badge'
 
+    import { BScroll } from '@/components/bscroll'
 
     export default {
         name: 'app',
@@ -65,7 +66,8 @@
             'm-navbar-next-icon': NavBarNextIcon,
             'm-tabbar': TabBar,
             'm-tabbar-item': TabBarItem,
-            'm-badge': Badge
+            'm-badge': Badge,
+            'm-bscroll': BScroll
         }
     }
 </script>

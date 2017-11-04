@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo{
+            width: 100px;
+            height: 20px;
+            background-color: #f36;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">
+
+    </div>
+    <script src="../../static/js/transform.js"></script>
+    <script src="../../static/js/alloy_finger.js"></script>
+
+    <script>
+
+        function generateTransition(options) {
+            return '-webkit-transition: all'+ ' ' + (options.time|| '1s')+ ' ' + (options.timingFunction || 'ease')+ ' ' + (options.delay|| '0s;')+ 'transition: all'+ ' ' + (options.time|| '1s')+ ' ' + (options.timingFunction || 'ease')+ ' ' + (options.delay|| '0s;')
+        }
+
+        var oDemo = document.querySelector('.demo')
+        Transform(oDemo)
+
+        var af = new AlloyFinger(oDemo, {
+            touchStart: function () {
+                console.log(this.style)
+                oDemo.style = oDemo.style.cssText + 'transition: none'
+                console.dir(this)
+            },
+            touchMove: function () { },
+            touchEnd:  function () {
+                oDemo.style =oDemo.style.cssText + generateTransition({
+                        time: '1s'
+                    })
+                this.translateX += 100
+                console.log(this.style)
+            },
+            touchCancel: function () { },
+            multipointStart: function () { },
+            multipointEnd: function () { },
+            tap: function () { },
+            doubleTap: function () { },
+            longTap: function () { },
+            singleTap: function () { },
+            rotate: function (evt) {
+                console.log(evt.angle);
+            },
+            pinch: function (evt) {
+                console.log(evt.zoom);
+            },
+            pressMove: function (evt) {
+                oDemo.style =oDemo.style.cssText + generateTransition({
+                        time: '0.051s'
+                    })
+                this.translateX += evt.deltaX
+                console.log(evt.deltaX);
+                console.log(evt.deltaY);
+            },
+            swipe: function (evt) {
+
+                console.log("swipe" + evt.direction);
+            }
+        });
+//        oDemo.addEventListener('click',function (evt) {
+//            oDemo.style.cssText = generateTransition({
+//                time: '5s',
+//                timeFunction: 'easeIn'
+//            })
+//            this.translateX += 100
+//            this.translateY += 100
+//        })
+    </script>
+
+</body>
+</html>
