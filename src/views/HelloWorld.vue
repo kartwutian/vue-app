@@ -5,12 +5,28 @@
            <div style="height: 100px;">123</div>
         </m-bscroll>
 
-        <div class="demo" ref="demo" style="transform: translateX(0px);" @click="slider"></div>
+        <m-slider autoplay="3000">
+            <m-slider-item>
+                <a href="http://www.ydcss.com">
+                    <img src="http://static.ydcss.com/uploads/ydui/1.jpg">
+                </a>
+            </m-slider-item>
+            <m-slider-item>
+                <a href="http://www.ydcss.com">
+                    <img src="http://static.ydcss.com/uploads/ydui/2.jpg">
+                </a>
+            </m-slider-item>
+            <m-slider-item>
+                <a href="http://www.ydcss.com">
+                    <img src="http://static.ydcss.com/uploads/ydui/3.jpg">
+                </a>
+            </m-slider-item>
+        </m-slider>
 
-        <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/1.jpg" class="test" noBgImage></m-lazyload>
-        <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/1.jpg" class="test" noBgImage></m-lazyload>
-        <m-lazyload data-src="http://img0.imgtn.bdimg.com/it/u=3920398476,1501488149&fm=214&gp=0.jpg" class="test"></m-lazyload>
-        <m-lazyload data-src="http://r1.ykimg.com/0510000059FB3229ADC0B0707701F370" ></m-lazyload>
+        <!--<m-lazyload data-src="http://static.ydcss.com/uploads/ydui/1.jpg" class="test" noBgImage></m-lazyload>-->
+        <!--<m-lazyload data-src="http://static.ydcss.com/uploads/ydui/1.jpg" class="test" noBgImage></m-lazyload>-->
+        <!--<m-lazyload data-src="http://img0.imgtn.bdimg.com/it/u=3920398476,1501488149&fm=214&gp=0.jpg" class="test"></m-lazyload>-->
+        <!--<m-lazyload data-src="http://r1.ykimg.com/0510000059FB3229ADC0B0707701F370" ></m-lazyload>-->
 
 
         <!--<m-slider autoplay="3000">-->

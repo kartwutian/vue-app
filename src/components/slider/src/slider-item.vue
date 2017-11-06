@@ -1,5 +1,5 @@
 <template>
-    <div class="slider-item">
+    <div class="m-slider-item">
         <slot></slot>
     </div>
 </template>
@@ -12,3 +12,7 @@
         }
     }
 </script>
+
+<style>
+
+</style>

@@ -1,17 +1,17 @@
 <template>
     <div class="m-slider" ref="slider">
-        <div class="slider-wrapper" ref="warpper"
-             :class="direction == 'vertical' ? 'slider-wrapper-vertical' : ''"
+        <div class="m-slider-wrapper" ref="warpper"
+             :class="direction == 'vertical' ? 'm-slider-wrapper-vertical' : ''"
              :style="dragStyleObject"
         >
-            <div class="slider-item" :style="itemHeight" v-html="lastItem"></div>
+            <div class="m-slider-item" :style="itemHeight" v-html="lastItem"></div>
             <slot></slot>
-            <div class="slider-item" :style="itemHeight" v-html="firtstItem"></div>
+            <div class="m-slider-item" :style="itemHeight" v-html="firtstItem"></div>
         </div>
-        <div class="slider-pagination" :class="direction == 'vertical' ? 'slider-pagination-vertical' : ''">
-            <span class="slider-pagination-item"
+        <div class="m-slider-pagination" :class="direction == 'vertical' ? 'm-slider-pagination-vertical' : ''">
+            <span class="m-slider-pagination-item"
                   v-for="(t, i) in itemNums"
-                  :class="paginationIndex == i ? 'slider-pagination-item-active': ''"
+                  :class="paginationIndex == i ? 'm-slider-pagination-item-active': ''"
             ></span>
         </div>
     </div>
@@ -78,7 +78,7 @@
                 this.destroy();
 
                 this.isVertical = this.direction == 'vertical';
-
+                console.log(this.$children)
                 this.itemsArr = this.$children.filter(item => item.$options.name === 'm-slider-item');
 
                 this.itemNums = this.itemsArr.length;

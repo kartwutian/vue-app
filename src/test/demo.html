@@ -7,19 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        .test{
+            overflow-x: hidden;
+        }
         .demo{
-            width: 100px;
-            height: 20px;
+            width: 200px;
+            height: 100px;
             background-color: #f36;
         }
     </style>
 </head>
 <body>
-    <div class="demo">
-
+    <div class="test">
+        <div class="demo">
+            fsf
+        </div>
     </div>
+
     <script src="../../static/js/transform.js"></script>
     <script src="../../static/js/alloy_finger.js"></script>
+    <script src="../../static/js/fingerd.js"></script>
 
     <script>
 
@@ -28,18 +35,47 @@
         }
 
         var oDemo = document.querySelector('.demo')
+//        var f = new Fingerd({
+//            element: oDemo
+//        })
+//        oDemo.addEventListener('touchstart', function (event) {
+//            f.injectEvent(event)
+//
+//            console.log(f)
+//        })
+//
+//        oDemo.addEventListener('touchmove', function (event) {
+//            f.injectEvent(event)
+//
+//            console.log(f)
+//        })
+//
+//        oDemo.addEventListener('touchend', function (event) {
+//            f.injectEvent(event)
+//
+//            console.log(f)
+//        })
+//
+//        oDemo.addEventListener('touchcancel', function (event) {
+//            f.injectEvent(event)
+//
+//            console.log(f)
+//        })
         Transform(oDemo)
 
         var af = new AlloyFinger(oDemo, {
             touchStart: function () {
                 console.log(this.style)
-                oDemo.style = oDemo.style.cssText + 'transition: none'
+                oDemo.style = oDemo.style.cssText + generateTransition({
+                        time: '0'
+                    })
                 console.dir(this)
             },
             touchMove: function () { },
             touchEnd:  function () {
                 oDemo.style =oDemo.style.cssText + generateTransition({
-                        time: '1s'
+                        time: '1s',
+                        timingFunction: 'cubic-bezier(.2,.81,0,1)'
                     })
                 this.translateX += 100
                 console.log(this.style)
@@ -58,26 +94,24 @@
                 console.log(evt.zoom);
             },
             pressMove: function (evt) {
-                oDemo.style =oDemo.style.cssText + generateTransition({
-                        time: '0.051s'
-                    })
-                this.translateX += evt.deltaX
-                console.log(evt.deltaX);
-                console.log(evt.deltaY);
+                var a =evt.deltaX>=0 ? 2:-2;
+                console.log(a)
+                this.translateX += a
+//                console.log(evt.deltaX);
             },
             swipe: function (evt) {
 
                 console.log("swipe" + evt.direction);
             }
         });
-//        oDemo.addEventListener('click',function (evt) {
-//            oDemo.style.cssText = generateTransition({
-//                time: '5s',
-//                timeFunction: 'easeIn'
-//            })
-//            this.translateX += 100
-//            this.translateY += 100
-//        })
+        oDemo.addEventListener('click',function (evt) {
+            oDemo.style.cssText = generateTransition({
+                time: '5s',
+                timeFunction: 'easeIn'
+            })
+            this.translateX += 100
+            this.translateY += 100
+        })
     </script>
 
 </body>
