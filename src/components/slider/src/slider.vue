@@ -22,6 +22,7 @@
         name: 'm-slider',
         data() {
             return {
+                wrapperSize:0,
                 firtstItem: '',
                 lastItem: '',
                 itemNums: 0,
@@ -77,8 +78,8 @@
             init() {
                 this.destroy();
 
+                this.wrapperSize = this.isVertical ? this.$el.clientHeight : this.$refs.warpper.offsetWidth;
                 this.isVertical = this.direction == 'vertical';
-                console.log(this.$children)
                 this.itemsArr = this.$children.filter(item => item.$options.name === 'm-slider-item');
 
                 this.itemNums = this.itemsArr.length;
@@ -151,7 +152,6 @@
                 const currentX = event.touches ? event.touches[0].clientX : event.clientX;
 
                 const touchAngle = Math.atan2(Math.abs(currentY - touches.startY), Math.abs(currentX - touches.startX)) * 180 / Math.PI;
-
                 if ((!this.isVertical ? touchAngle > 45 : (90 - touchAngle > 45)) && this.supportTouch) {
                     touches.moveTag = 3;
                     this.stopAutoplay();
@@ -171,6 +171,12 @@
                         this.setTranslate(0, -this.index * (this.isVertical ? this.$el.clientHeight : this.$refs.warpper.offsetWidth) + deltaSlide);
                     }
                 }
+
+                /* 解决apicloud ios系统手指移出屏幕不触发touchend的bug*/
+                if(!this.isVertical &&(currentX<10||currentX>(this.wrapperSize-10)) || this.isVertical &&(currentY<10||currentY>(this.wrapperSize-10))){
+                    this.touchEndHandler()
+                }
+
             },
             touchEndHandler() {
                 const touches = this.touches;
@@ -189,7 +195,6 @@
                     touches.moveTag = 0;
 
                     const timeDiff = Date.now() - touches.touchStartTime;
-
                     if (timeDiff > 300 && Math.abs(moveOffset) <= warpperSize * .5) {
                         this.setTranslate(this.speed, -this.index * warpperSize);
                     } else {
