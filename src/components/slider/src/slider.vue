@@ -76,6 +76,8 @@
         },
         methods: {
             init() {
+
+
                 this.destroy();
 
                 this.wrapperSize = this.isVertical ? this.$el.clientHeight : this.$refs.warpper.offsetWidth;
@@ -102,6 +104,14 @@
             },
             cloneItem() {
                 const itemArr = this.itemsArr;
+
+                /* 解决懒加载之后的bug */
+                const firstImg = itemArr[0].$el.querySelector('img');
+                firstImg.src =  firstImg.getAttribute('data-src');
+                firstImg.style.opacity = 1;
+                const lastImg = itemArr[itemArr.length - 1].$el.querySelector('img');
+                lastImg.src =  lastImg.getAttribute('data-src');
+                lastImg.style.opacity = 1;
 
                 this.firtstItem = itemArr[0].$el.innerHTML;
                 this.lastItem = itemArr[itemArr.length - 1].$el.innerHTML;

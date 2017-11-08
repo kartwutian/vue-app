@@ -13,6 +13,7 @@
             }
         },
         props: {
+            'bgColor':String,
             'dataSrc': String,
             'dataSrcset': String,
             'dataBackgroundImage': String,
@@ -53,7 +54,7 @@
         computed: {
             styles (){
                 return {
-                    backgroundColor: this.randomColor()
+                    backgroundColor: this.bgColor || this.randomColor()
                 }
             },
             lazyClass (){

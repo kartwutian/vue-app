@@ -6,234 +6,270 @@
 @icon-loading: 'data:image/png;base64,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';
 
 @keyframes zoomIn {
-  from {
-    opacity: 0;
-    transform: scale3d(.3, .3, .3);
-  }
-  50% {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 @keyframes notify-downin {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -50px, 0);
-  }
-  50% {
-    opacity: .5;
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -50px, 0);
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
 }
 
 @keyframes notify-upout {
-  0% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate3d(0, -50px, 0);
-  }
+    0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(0, -50px, 0);
+    }
 }
 
 @keyframes rotate-loading {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .@{css-prefix} {
-  &-dialog {
-    &-black-mask {
-      .mask(rgba(0, 0, 0, .4), @base-zindex * 2000);
+    &-dialog {
+        &-black-mask {
+            .mask(rgba(0, 0, 0, .4), @base-zindex * 2000);
+        }
+
+        &-white-mask {
+            .mask(rgba(0, 0, 0, 0), @base-zindex * 2000);
+        }
+
+        &-all-white-mask {
+            .mask(rgb(255,255,255), @base-zindex * 2000);
+            opacity: 1;
+            transition: opacity .5s;
+        }
+
     }
 
-    &-white-mask {
-      .mask(rgba(0, 0, 0, 0), @base-zindex * 2000);
+    // Confirm =================
+    &-confirm {
+        width: 85%;
+        background-color: #FAFAFA;
+        border-radius: 2px;
+        font-size: 15px;
+        animation: zoomIn .15s ease forwards;
+
+        &-hd {
+            text-align: left;
+            padding: 15px 20px 5px;
+        }
+
+        &-title {
+            font-weight: normal;
+            color: #444;
+            word-break: break-all;
+        }
+
+        &-bd {
+            text-align: left;
+            padding: 0 20px;
+            font-size: 14px;
+            color: #888;
+            line-height: 20px;
+            word-break: break-all;
+        }
+
+        &-ft {
+            position: relative;
+            line-height: 40px;
+            margin-top: 14px;
+            display: flex;
+            &:after {
+                .top-line(@line-color);
+            }
+            > a {
+                position: relative;
+                text-align: center;
+                display: block;
+                flex: 1;
+                padding: 0 2px;
+                &:not(:last-child):after {
+                    .right-line(@line-color);
+                }
+                &.default {
+                    color: #353535;
+                }
+                &.primary {
+                    color: #0BB20C;
+                }
+            }
+        }
     }
-  }
 
-  // Confirm =================
-  &-confirm {
-    width: 85%;
-    background-color: #FAFAFA;
-    border-radius: 2px;
-    font-size: 15px;
-    animation: zoomIn .15s ease forwards;
-
-    &-hd {
-      text-align: left;
-      padding: 15px 20px 5px;
+    // Alert =================
+    &-alert {
+        animation: zoomIn .15s ease forwards;
+        .@{css-prefix}-confirm-bd {
+            text-align: center;
+            padding: 20px 20px 0 20px;
+        }
+        .@{css-prefix}-confirm-ft {
+            margin-top: 14px;
+        }
     }
 
-    &-title {
-      font-weight: normal;
-      color: #444;
-      word-break: break-all;
-    }
-
-    &-bd {
-      text-align: left;
-      padding: 0 20px;
-      font-size: 14px;
-      color: #888;
-      line-height: 20px;
-      word-break: break-all;
-    }
-
-    &-ft {
-      position: relative;
-      line-height: 40px;
-      margin-top: 14px;
-      display: flex;
-      &:after {
-        .top-line(@line-color);
-      }
-      > a {
-        position: relative;
+    // Toast =================
+    &-toast {
+        min-width: 130px;
+        max-width: 80%;
+        padding-top: 20px;
+        background: rgba(40, 40, 40, .8);
         text-align: center;
-        display: block;
-        flex: 1;
-        padding: 0 2px;
-        &:not(:last-child):after {
-          .right-line(@line-color);
+        border-radius: 3px;
+        color: #FFF;
+        animation: zoomIn .06s ease forwards;
+
+        &-none-icon {
+            padding-top: 10px;
+            border-radius: 3px;
+            .@{css-prefix}-toast-content {
+                padding: 0 36px 10px 36px;
+            }
         }
-        &.default {
-          color: #353535;
+
+        &-content {
+            font-size: 15px;
+            padding: 0 15px 15px 15px;
+            line-height: 22px;
+            word-break: break-all;
         }
-        &.primary {
-          color: #0BB20C;
+
+        &-success-icon,
+        &-error-icon {
+            display: block;
+            margin-bottom: 10px;
+            &:after {
+                display: inline-block;
+                content: '';
+            }
         }
-      }
-    }
-  }
 
-  // Alert =================
-  &-alert {
-    animation: zoomIn .15s ease forwards;
-    .@{css-prefix}-confirm-bd {
-      text-align: center;
-      padding: 20px 20px 0 20px;
-    }
-    .@{css-prefix}-confirm-ft {
-      margin-top: 14px;
-    }
-  }
+        &-success-icon:after {
+            width: 43px;
+            height: 35px;
+            background: url(@icon-success) no-repeat;
+            background-size: 43px 35px;
+        }
 
-  // Toast =================
-  &-toast {
-    min-width: 130px;
-    max-width: 80%;
-    padding-top: 20px;
-    background: rgba(40, 40, 40, .8);
-    text-align: center;
-    border-radius: 3px;
-    color: #FFF;
-    animation: zoomIn .06s ease forwards;
-
-    &-none-icon {
-      padding-top: 10px;
-      border-radius: 3px;
-      .@{css-prefix}-toast-content {
-        padding: 0 36px 10px 36px;
-      }
+        &-error-icon:after {
+            width: 35px;
+            height: 35px;
+            background: url(@icon-error) no-repeat;
+            background-size: 35px 35px;
+        }
     }
 
-    &-content {
-      font-size: 15px;
-      padding: 0 15px 15px 15px;
-      line-height: 22px;
-      word-break: break-all;
+    // Notify =================
+    &-notify {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(40, 40, 40, .8);
+        line-height: .28rem;
+        font-size: .26rem;
+        color: #FFF;
+        padding: .3rem .24rem;
+        opacity: 0;
+        animation: notify-downin .2s linear forwards;
+        word-break: break-all;
+        text-align: center;
+        z-index: @base-zindex * 2000;
+        &-out {
+            opacity: 1;
+            animation: notify-upout .15s linear forwards;
+        }
     }
 
-    &-success-icon,
-    &-error-icon {
-      display: block;
-      margin-bottom: 10px;
-      &:after {
-        display: inline-block;
-        content: '';
-      }
+    // Loading =================
+    &-loading {
+        border-radius: 5px;
+        color: #FFF;
+        background-color: rgba(40, 40, 40, .8);
+        animation: zoomIn .1s ease forwards;
+        display: flex;
+        align-items: center;
+        padding: 0 23px 0 24px;
+        height: 48px;
+        &-icon {
+            width: 28px;
+            height: 28px;
+            background: url(@icon-loading) no-repeat;
+            background-size: 28px 28px;
+            animation: rotate-loading .45s linear forwards infinite;
+            margin-right: 10px;
+        }
+        &-txt {
+            font-size: 15px;
+            color: #FFF;
+            max-width: 140px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+    // preload =================
+    &-preload {
+        border-radius: 5px;
+        animation: zoomIn .1s ease forwards;
+        display: flex;
+        align-items: center;
+        padding: 0 23px 0 24px;
+        height: 48px;
+        &-icon {
+            width: 18px;
+            height: 18px;
+            background: url(@icon-loading) no-repeat;
+            background-size: 18px 18px;
+            animation: rotate-loading 1s linear forwards infinite;
+            margin-right: 10px;
+        }
+        &-txt {
+            font-size: 13px;
+            color: rgba(40, 40, 40, .8);
+            max-width: 140px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
     }
 
-    &-success-icon:after {
-      width: 43px;
-      height: 35px;
-      background: url(@icon-success) no-repeat;
-      background-size: 43px 35px;
+    &-fadeOut {
+        opacity: 0;
     }
-
-    &-error-icon:after {
-      width: 35px;
-      height: 35px;
-      background: url(@icon-error) no-repeat;
-      background-size: 35px 35px;
-    }
-  }
-
-  // Notify =================
-  &-notify {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(40, 40, 40, .8);
-    line-height: .28rem;
-    font-size: .26rem;
-    color: #FFF;
-    padding: .3rem .24rem;
-    opacity: 0;
-    animation: notify-downin .2s linear forwards;
-    word-break: break-all;
-    text-align: center;
-    z-index: @base-zindex * 2000;
-    &-out {
-      opacity: 1;
-      animation: notify-upout .15s linear forwards;
-    }
-  }
-
-  // Loading =================
-  &-loading {
-    border-radius: 5px;
-    color: #FFF;
-    background-color: rgba(40, 40, 40, .8);
-    animation: zoomIn .1s ease forwards;
-    display: flex;
-    align-items: center;
-    padding: 0 23px 0 24px;
-    height: 48px;
-    &-icon {
-      width: 28px;
-      height: 28px;
-      background: url(@icon-loading) no-repeat;
-      background-size: 28px 28px;
-      animation: rotate-loading .45s linear forwards infinite;
-      margin-right: 10px;
-    }
-    &-txt {
-      font-size: 15px;
-      color: #FFF;
-      max-width: 140px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-  }
 }
 
 @media screen and (min-width: 768px) {
-  .@{css-prefix}-confirm {
-    width: 40%;
-  }
+    .@{css-prefix}-confirm {
+        width: 40%;
+    }
 }

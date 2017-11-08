@@ -16,6 +16,7 @@
                 <m-tabbar-item @click.native="changeItem(1)" title="通讯录" link="/friends" :active="isActive[1]" >
                     <i slot="icon" class="vfont icon-discover"></i>
                 </m-tabbar-item>
+                <div style="width:1.4rem;"></div>
                 <m-tabbar-item @click.native="changeItem(2)" title="发现" link="/discover" dot :active="isActive[2]">
                     <i slot="icon" class="vfont icon-discover"></i>
                 </m-tabbar-item>
@@ -25,6 +26,7 @@
             </m-tabbar>
         </m-layout>
 
+        <m-avatar-bar></m-avatar-bar>
     </div>
 </template>
 
@@ -35,6 +37,7 @@
     import { Badge } from '@/components/badge'
 
     import { BScroll } from '@/components/bscroll'
+    import { AvatarBar } from '@/components/avatarbar'
 
     export default {
         name: 'app',
@@ -67,7 +70,8 @@
             'm-tabbar': TabBar,
             'm-tabbar-item': TabBarItem,
             'm-badge': Badge,
-            'm-bscroll': BScroll
+            'm-bscroll': BScroll,
+            'm-avatar-bar': AvatarBar
         }
     }
 </script>

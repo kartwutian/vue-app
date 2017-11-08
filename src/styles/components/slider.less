@@ -51,7 +51,7 @@
             pointer-events: none;
             display: flex;
             align-items: flex-end;
-            justify-content: center;
+            justify-content: flex-end;
             opacity: 0;
             animation: slider-pagination-opacity .3s linear .4s forwards;
 
@@ -70,11 +70,16 @@
                 width: 6px;
                 height: 6px;
                 display: inline-block;
-                border-radius: 100%;
+                border-radius: 6px;
                 background-color: #B7D0E1;
+                transition: all .5s;
+                &:last-of-type{
+                    margin-right: .4rem;
+                }
 
                 &-active {
                     background-color: #FF0005;
+                    width: 10px;
                 }
             }
         }

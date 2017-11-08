@@ -2,22 +2,37 @@
 
     <div class="hello">
 
-        <m-slider autoplay="5000">
+        <m-slider autoplay="50000">
             <m-slider-item>
                 <a href="http://www.ydcss.com">
-                    <img src="http://static.ydcss.com/uploads/ydui/1.jpg">
+                    <m-lazyload data-src="http://img0.imgtn.bdimg.com/it/u=3920398476,1501488149&fm=214&gp=0.jpg" class="test"></m-lazyload>
                 </a>
             </m-slider-item>
             <m-slider-item>
                 <a href="http://www.ydcss.com">
-                    <img src="http://static.ydcss.com/uploads/ydui/2.jpg">
+                    <m-lazyload data-src="http://r1.ykimg.com/0510000059FB3229ADC0B0707701F370" class="test"></m-lazyload>
                 </a>
             </m-slider-item>
             <m-slider-item>
                 <a href="http://www.ydcss.com">
-                    <img src="http://static.ydcss.com/uploads/ydui/3.jpg">
+                    <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/3.jpg" class="test"></m-lazyload>
                 </a>
             </m-slider-item>
+            <m-slider-item>
+                <a href="http://www.ydcss.com">
+                    <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/3.jpg" class="test"></m-lazyload>
+                </a>
+            </m-slider-item>
+            <!--<m-slider-item>-->
+                <!--<a href="http://www.ydcss.com">-->
+                    <!--<img src="http://r1.ykimg.com/0510000059FB3229ADC0B0707701F370">-->
+                <!--</a>-->
+            <!--</m-slider-item>-->
+            <!--<m-slider-item>-->
+                <!--<a href="http://www.ydcss.com">-->
+                    <!--<img src="http://static.ydcss.com/uploads/ydui/3.jpg">-->
+                <!--</a>-->
+            <!--</m-slider-item>-->
         </m-slider>
         <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/1.jpg" class="test" noBgImage></m-lazyload>
         <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/1.jpg" class="test" noBgImage></m-lazyload>
@@ -30,8 +45,6 @@
 
 <script>
 import { Slider, SliderItem } from '@/components/slider'
-import { Lazyload } from '@/components/Lazyload'
-import { BScroll } from '@/components/bscroll'
 export default {
     name: 'HelloWorld',
     data () {
@@ -40,23 +53,43 @@ export default {
         }
     },
     mounted(){
+        this.loading()
 
+//        this.$dialog.confirm({
+//            title: '选填标题',
+//            mes: '我有一个小毛驴我从来也不骑！',
+//            opts: () => {
+//                this.$dialog.toast({mes: '你点了确定', timeout: 1000});
+//            }
+//        });
+
+//        this.$dialog.alert({mes: '消息一出，休想滚动屏幕[移动终端]！'});
+
+//        this.$dialog.toast({
+//            mes: '鼠标不错哟！',
+//            timeout: 1500,
+//            icon: 'success'
+//        });
+
+//        this.$dialog.notify({
+//            mes: '5秒后自动消失，点我也可以消失！',
+//            timeout: 5000,
+//            callback: () => {
+//                console.log('我走咯！');
+//            }
+//        });
     },
     components: {
         'm-slider': Slider,
-        'm-slider-item': SliderItem,
-        'm-lazyload': Lazyload,
-        'm-bscroll': BScroll
+        'm-slider-item': SliderItem
     },
     methods: {
-        transition(el){
-            el.style.cssText = el.style.cssText
-        },
-        slider(){
-            Transform(this.$refs.demo)
-            this.$refs.demo.translateX += 100
+        loading () {
+            this.$dialog.preload.open()
+             setTimeout( () => {
+                 this.$dialog.preload.close()
+             },3000)
         }
-
     }
 }
 </script>
