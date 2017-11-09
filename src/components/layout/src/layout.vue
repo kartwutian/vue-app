@@ -24,6 +24,7 @@
         methods: {
             scroll () {
                 this.$store.dispatch('updataScrollView',{
+                    scrollEl: this.$refs.scrollView,
                     scrollTop: this.$refs.scrollView.scrollTop
                 })
             }

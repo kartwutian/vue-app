@@ -2,24 +2,19 @@
 @import "../common/mixins";
 
 .@{css-prefix} {
-  &-backtop {
-    border: 1px solid #C0C0C0;
-    width: 1rem;
-    height: 1rem;
-    background-color: rgba(255, 255, 255, .85);
-    position: fixed;
-    border-radius: 50%;
-    right: 5%;
-    bottom: 5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: @base-zindex * 1000;
-    &:after {
-      font-family: @iconfont-inlay;
-      content: '\E788';
-      font-size: .5rem;
-      color: #C0C0C0;
+    &-backtop {
+        border: 1px solid #C0C0C0;
+        background-color: rgba(0,0,0,.2);
+        color: #fff;
+        width: .8rem;
+        height: .8rem;
+        position: fixed;
+        border-radius: 50%;
+        right: 5%;
+        bottom: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: @base-zindex * 1000;
     }
-  }
 }
