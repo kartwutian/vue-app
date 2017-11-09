@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>两只老虎</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <button id="btn">两只老虎</button>
+
+    <script>
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
+        (function () {
+            if(!window.AudioContext){
+                alert('您的浏览器out啦');
+                return
+            }
+            console.log( window.AudioContext )
+
+            var oBtn = document.getElementById('btn');
+
+            var audioCtx = new AudioContext();
+
+            var arrFrequency = [];
+
+            var start = 0;
+
+            btn.addEventListener('mouseenter',function () {
+                var frequency = arrFrequency[start];
+                if(!frequency){
+                    start = [0]
+                    frequency = arrFrequency[start]
+                }
+                start ++
+
+                var oscillator = audioCtx.create
+            })
+
+
+        })()
+    </script>
+
+</body>
+</html>
