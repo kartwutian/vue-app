@@ -60,19 +60,31 @@
         name: 'm-index',
         data () {
             return {
-                isActive: [true,false,false,false],
-                styles:
-                    {
-                        opacity: 0
-                    },
-                scrollWatch: 0
+                styles: {
+                    opacity: 0
+                }
             }
         },
         mounted () {
             this.bindScroll()
 
         },
+        computed: {
+            isActive: {
+                get: function () {
+                    return [
+                        /\/hello/.test(this.$route.path),
+                        /\/friends/.test(this.$route.path),
+                        /\/discover/.test(this.$route.path),
+                        /\/center/.test(this.$route.path)
+                    ]
+                },
+                set: function (newValue) {
+                    return newValue
+                }
 
+            }
+        },
         methods: {
             changeItem (index) {
                 this.isActive = [false,false,false,false]
