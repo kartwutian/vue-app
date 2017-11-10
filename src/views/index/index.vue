@@ -1,12 +1,36 @@
 <template>
     <div id="app">
             <m-layout>
-                <m-navbar bgcolor="#fff" color="#f36" title="title" fixed slot="top" ref="navbar" :style="styles">
-                    <m-navbar-back-icon slot="left"></m-navbar-back-icon>
-                    <m-navbar-next-icon slot="right" icon="icon-next"></m-navbar-next-icon>
-                </m-navbar>
+                <div v-if="isActive[0]" slot="top">
+                    <m-navbar bgcolor="#fff" color="#f36" title="index0" fixed  ref="navbar" :style="styles">
+                        <m-navbar-back-icon slot="left"></m-navbar-back-icon>
+                        <m-navbar-next-icon slot="right" icon="icon-next"></m-navbar-next-icon>
+                    </m-navbar>
+                </div>
+                <div v-if="isActive[1]" slot="top">
+                    <m-navbar bgcolor="#fff" color="#f36" title="index1" fixed  ref="navbar" :style="styles">
+                        <m-navbar-back-icon slot="left"></m-navbar-back-icon>
+                        <m-navbar-next-icon slot="right" icon="icon-next"></m-navbar-next-icon>
+                    </m-navbar>
+                </div>
+                <div v-if="isActive[2]" slot="top">
+                    <m-navbar bgcolor="#fff" color="#f36" title="index2" fixed  ref="navbar" :style="styles">
+                        <m-navbar-back-icon slot="left"></m-navbar-back-icon>
+                        <m-navbar-next-icon slot="right" icon="icon-next"></m-navbar-next-icon>
+                    </m-navbar>
+                </div>
+                <div v-if="isActive[3]" slot="top">
+                    <m-navbar bgcolor="#fff" color="#f36" title="index3" fixed  ref="navbar" :style="styles">
+                        <m-navbar-back-icon slot="left"></m-navbar-back-icon>
+                        <m-navbar-next-icon slot="right" icon="icon-next"></m-navbar-next-icon>
+                    </m-navbar>
+                </div>
 
-                <router-view ref="view"/>
+                <keep-alive>
+                    <router-view ref="view"/>
+                </keep-alive>
+
+                <m-backtop @click.native="backTop()"></m-backtop>
 
                 <m-tabbar class="demo-small-pitch" slot="bottom" ref="tabbar" >
                     <m-tabbar-item @click.native="changeItem(0)" title="微信" link="/" :active="isActive[0]">
@@ -36,28 +60,50 @@
         name: 'm-index',
         data () {
             return {
-                isActive: [true,false,false,false]
+                isActive: [true,false,false,false],
+                styles:
+                    {
+                        opacity: 0
+                    },
+                scrollWatch: 0
             }
         },
         mounted () {
-            console.log(this.$refs.tabbar)
+            this.bindScroll()
+
         },
-        computed: {
-            styles(){
-                return{
-                    opacity: this.$store.getters.scrollTopToOpacity
-                }
-            }
-        },
+
         methods: {
             changeItem (index) {
                 this.isActive = [false,false,false,false]
                 this.isActive[index] = true
+            },
+            bindScroll () {
+                this.oScroll = document.querySelector('.m-scrollview')
+                if(!this.oScroll){
+                    return;
+                }
+                this.oScroll.addEventListener('scroll',()=>{
+                    this.styles.opacity = this.scrollTopToOpacity(this.oScroll.scrollTop)
+                })
+
+            },
+            backTop () {
+                $utils.scrollTo(this.oScroll,0)
+            },
+            scrollTopToOpacity: function (scrollTop) {
+                return scrollTop/100 > 1 ? 1 :scrollTop/100
             }
         },
         components: {
             'm-tabbar': TabBar,
             'm-tabbar-item': TabBarItem
+        },
+        beforeRouteLeave (to, from, next) {
+            // 导航离开该组件的对应路由时调用
+            // 可以访问组件实例 `this`
+            this.scrollWatch = this.oScroll.scrollTop;
+            console.log(this.scrollWatch)
         }
     }
 </script>

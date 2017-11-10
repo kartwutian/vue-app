@@ -15,6 +15,7 @@
         components: {
             'm-avatar-bar': AvatarBar
         }
+
     }
 </script>
 

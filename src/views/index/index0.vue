@@ -1,7 +1,6 @@
 <template>
 
-    <div class="hello">
-
+    <div class="hello" @scroll="scroll()" ref="index0">
         <m-slider autoplay="50000">
             <m-slider-item>
                 <a href="http://www.ydcss.com">
@@ -39,7 +38,7 @@
         <m-lazyload data-src="http://img0.imgtn.bdimg.com/it/u=3920398476,1501488149&fm=214&gp=0.jpg" class="test"></m-lazyload>
         <m-lazyload data-src="http://r1.ykimg.com/0510000059FB3229ADC0B0707701F370" ></m-lazyload>
 
-        <m-backtop @click.native="backTop()"></m-backtop>
+
 
     </div>
 </template>
@@ -55,7 +54,6 @@
         },
         mounted(){
             this.loading()
-
 //        this.$dialog.confirm({
 //            title: '选填标题',
 //            mes: '我有一个小毛驴我从来也不骑！',
@@ -90,10 +88,8 @@
                 setTimeout( () => {
                     this.$dialog.preload.close()
                 },300)
-            },
-            backTop () {
-                console.log( this.$store.state.animation.scrollView.scrollEl.scrollTop = 0)
             }
+
         }
     }
 </script>

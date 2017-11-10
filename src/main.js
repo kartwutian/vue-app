@@ -24,9 +24,22 @@ const mvvm = new Vue({
     render: (h) =>h(App)
 })
 
-router.beforeEach((to, from, next) => {
-    // mvvm.$dialog.loading.open()
-    // setTimeout(function () {
-    //     mvvm.$dialog.loading.close()
-    // },3000)
+
+// 主要通过afterEach钩子
+router.afterEach((to, from) => {
+    // 将位置保存在vuex中
+    store.commit('SAVE_POSITION', {
+        name: from.path,
+        position: document.querySelector('.m-scrollview').scrollTop || document.body.scrollTop || document.documentElement.scrollTop
+    })
+    // 设置保存的位置
+    if (store.state.positions[to.path]) {
+        setTimeout(() => {
+            $utils.scrollTo(document.querySelector('.m-scrollview'), store.state.positions[to.path].position)
+        }, 0)
+    } else {
+        setTimeout(() => {
+            $utils.scrollTo(document.querySelector('.m-scrollview'), 0)
+        }, 0)
+    }
 })

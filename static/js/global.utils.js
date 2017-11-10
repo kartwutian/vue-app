@@ -1,3 +1,32 @@
+
+;(function () {
+    'use strict';
+
+    if (!Date.now)
+        Date.now = function () { return new Date().getTime(); };
+
+    var vendors = ['webkit', 'moz'];
+    for (var i = 0; i < vendors.length && !window.requestAnimationFrame; ++i) {
+        var vp = vendors[i];
+        window.requestAnimationFrame = window[vp + 'RequestAnimationFrame'];
+        window.cancelAnimationFrame = (window[vp + 'CancelAnimationFrame']
+        || window[vp + 'CancelRequestAnimationFrame']);
+    }
+    if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent) // iOS6 is buggy
+        || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
+        var lastTime = 0;
+        window.requestAnimationFrame = function (callback) {
+            var now = Date.now();
+            var nextTime = Math.max(lastTime + 16, now);
+            return setTimeout(function () { callback(lastTime = nextTime); },
+                nextTime - now);
+        };
+        window.cancelAnimationFrame = clearTimeout;
+    }
+}());
+
+
+
 /**
  * 在window 对象上注册一个$util对象
  * 里面封装一些全局的公用方法
@@ -46,7 +75,28 @@
                     (el || document).removeEventListener('touchmove', fn);
                 }
             };
-        })()
+        })(),
+        scrollTo: function(el,distination,duration){
+            var el = el || window.document
+            var distination = distination || 0
+            var duration = duration || 300
+
+            var start = el.scrollTop
+
+            var times =Math.round( duration/16.666666666666667 )
+            var step = Math.round(( distination - start ) / times)
+
+            function tick() {
+                times --
+                if(times>0){
+                    el.scrollTop +=  step
+                    requestAnimationFrame(tick)
+                    return
+                }
+                el.scrollTop = distination
+            }
+            tick()
+        }
     }
 
 }(window,document);
