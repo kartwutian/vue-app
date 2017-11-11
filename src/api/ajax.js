@@ -9,5 +9,8 @@ export function queryTest (options){
 }
 
 export function refreshTest (options){
-    return jsonp('http://list.ydui.org/getdata.php',{type: 'pulldown', page: 1})
+    return jsonp('http://list.ydui.org/getdata.php',{
+        type: 'pulldown',
+        page: 1
+    })
 }

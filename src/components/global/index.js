@@ -9,6 +9,7 @@ import { BackTop } from  '../backtop'
 import {ListTheme, ListItem, ListOther} from '../list'
 import {InfiniteScroll} from '../infinitescroll'
 import { PullRefresh } from '../pullrefresh'
+import { InfiniteScrollRefresh } from '../infinitescrollrefresh'
 
 const install = function (Vue) {
     Vue.component(Layout.name,Layout)
@@ -23,6 +24,7 @@ const install = function (Vue) {
     Vue.component(ListOther.name,ListOther)
     Vue.component(InfiniteScroll.name,InfiniteScroll)
     Vue.component(PullRefresh.name,PullRefresh)
+    Vue.component(InfiniteScrollRefresh.name,InfiniteScrollRefresh)
 
     Vue.prototype.$dialog = {
         confirm: Confirm,
