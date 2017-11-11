@@ -1,96 +1,154 @@
 <template>
+    <m-infinitescroll :callback="loadList" ref="lsdemo">
 
-    <div class="hello">
+        <m-list theme="5" slot="list">
+            <m-list-item v-for="item in list">
 
-        <m-slider autoplay="50000">
-            <m-slider-item>
-                <a href="http://www.ydcss.com">
-                    <m-lazyload data-src="http://img0.imgtn.bdimg.com/it/u=3920398476,1501488149&fm=214&gp=0.jpg" class="test"></m-lazyload>
-                </a>
-            </m-slider-item>
-            <m-slider-item>
-                <a href="http://www.ydcss.com">
-                    <m-lazyload data-src="http://r1.ykimg.com/0510000059FB3229ADC0B0707701F370" class="test"></m-lazyload>
-                </a>
-            </m-slider-item>
-            <m-slider-item>
-                <a href="http://www.ydcss.com">
-                    <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/3.jpg" class="test"></m-lazyload>
-                </a>
-            </m-slider-item>
-            <m-slider-item>
-                <a href="http://www.ydcss.com">
-                    <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/3.jpg" class="test"></m-lazyload>
-                </a>
-            </m-slider-item>
-            <!--<m-slider-item>-->
-            <!--<a href="http://www.ydcss.com">-->
-            <!--<img src="http://r1.ykimg.com/0510000059FB3229ADC0B0707701F370">-->
-            <!--</a>-->
-            <!--</m-slider-item>-->
-            <!--<m-slider-item>-->
-            <!--<a href="http://www.ydcss.com">-->
-            <!--<img src="http://static.ydcss.com/uploads/ydui/3.jpg">-->
-            <!--</a>-->
-            <!--</m-slider-item>-->
-        </m-slider>
-        <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/1.jpg" class="test" noBgImage></m-lazyload>
-        <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/1.jpg" class="test" noBgImage></m-lazyload>
-        <m-lazyload data-src="http://img0.imgtn.bdimg.com/it/u=3920398476,1501488149&fm=214&gp=0.jpg" class="test"></m-lazyload>
-        <m-lazyload data-src="http://r1.ykimg.com/0510000059FB3229ADC0B0707701F370" ></m-lazyload>
+                <img slot="img" :src="item.img">
+                <span slot="title">{{item.title}}</span>
+                <m-list-other slot="other">
+                    <div>
+                        <span class="list-price"><em>¥</em>{{item.marketprice}}</span>
+                        <span class="list-del-price">¥{{item.productprice}}</span>
+                    </div>
+                    <div>content</div>
+                </m-list-other>
+            </m-list-item>
+        </m-list>
 
-        <m-backtop @click.native="backTop()"></m-backtop>
+        <!-- 数据全部加载完毕显示 -->
+        <span slot="doneTip">啦啦啦，啦啦啦，没有数据啦~~</span>
 
-    </div>
+    </m-infinitescroll>
+
+
 </template>
 
 <script>
-    import { Slider, SliderItem } from '@/components/slider'
+    import { queryTest } from '@/api/ajax.js'
     export default {
         name: 'm-index3',
         data () {
-            return {
-                msg: 'Welcome to Your Vue.js App'
+            return{
+                page: 1,
+                pageSize: 10,
+                list: [
+                    {
+                        img: "http://img1.shikee.com/try/2016/06/23/14381920926024616259.jpg",
+                        title: "标题标题标题标题标题",
+                        marketprice: 56.23,
+                        productprice: 89.36
+                    },
+                    {
+                        img: "http://img1.shikee.com/try/2016/06/21/10172020923917672923.jpg",
+                        title: "骆驼男装2016夏装男士短袖T恤 圆领衣服 印花男装体恤 半袖打底衫",
+                        marketprice: 56.23,
+                        productprice: 89.36
+                    },
+                    {
+                        img: "http://img1.shikee.com/try/2016/06/23/15395220917905380014.jpg",
+                        title: "条纹短袖T恤男士韩版衣服大码潮流男装夏季圆领体恤2016新款半袖",
+                        marketprice: 56.23,
+                        productprice: 89.36
+                    },
+                    {
+                        img: "http://img1.shikee.com/try/2016/06/25/14244120933639105658.jpg",
+                        title: "夏季青少年衣服男生潮牌t恤 男士 夏秋学生 日系棉短袖半袖男小衫",
+                        marketprice: 56.23,
+                        productprice: 89.36
+                    },
+                    {
+                        img: "http://img1.shikee.com/try/2016/06/26/12365720933909085511.jpg",
+                        title: "2016夏装新款时尚潮流短袖T恤男纯棉V领日系青少年韩版夏季上衣服",
+                        marketprice: 56.23,
+                        productprice: 89.36
+                    },
+                    {
+                        img: "http://img1.shikee.com/try/2016/06/19/09430120929215230041.jpg",
+                        title: "男装衣服男夏t恤 男士短袖t恤圆领夏季潮牌宽松原宿风半截袖男",
+                        marketprice: 56.23,
+                        productprice: 89.36
+                    },
+                    {
+                        img: "http://img1.shikee.com/try/2016/06/03/12173920932544716516.jpg",
+                        title: "superman短袖t恤日潮牌男士日韩夏装水洗做旧修身个性短袖t恤衣服",
+                        marketprice: 56.23,
+                        productprice: 89.36
+                    },
+                    {
+                        img: "http://img1.shikee.com/try/2016/09/28/14575020926479478831.jpg",
+                        title: "买一送二新款青少年潮男大码T恤 学生字半袖修身款衣服半截袖青年",
+                        marketprice: 56.23,
+                        productprice: 89.36
+                    }
+                ]
             }
         },
+        mounted () {
 
-        components: {
-            'm-slider': Slider,
-            'm-slider-item': SliderItem
+        },
+        methods: {
+            loadList() {
+                queryTest({
+                    page: this.page,
+                    pagesize: this.pageSize
+                }).then((response) => {
+                    console.log(response)
+                    setTimeout( ( ) => {
+                        // 请求太快了，延迟一下方便看效果！
+                        const _list = response;
+
+                        this.list = [...this.list, ..._list];
+
+                        if (_list.length < this.pageSize || this.page >= 4) {
+                            // 所有数据加载完毕
+                            this.$refs.lsdemo.$emit('ydui.infinitescroll.loadedDone');
+                            return;
+                        }
+
+                        // 单次请求数据完毕
+                        this.$refs.lsdemo.$emit('ydui.infinitescroll.finishLoad');
+
+                        this.page++;
+                    }, 3000);
+                });
+            }
         }
+
     }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-    .hello{
-    }
-    h1, h2 {
-        font-weight: normal;
+<style lang="less">
+
+    .list-price {
+        font-size: .3rem;
+        color: #EB5211;
+        > em {
+            font-size: .22rem;
+        }
     }
 
-    ul {
-        list-style-type: none;
-        padding: 0;
+    .list-del-price {
+        padding-left: .06rem;
+        font-size: .2rem;
+        margin-left: .02rem;
+        position: relative;
+        color: #8C8C8C;
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            width: 100%;
+            border-top: 1px solid #8C8C8C;
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            top: auto;
+            bottom: 50%;
+        }
     }
 
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    a {
-        color: #42b983;
-    }
-    .test{
-        width: 100%;
-        height: 400px;
-    }
-    .demo{
-        width: 100px;
-        height: 10px;
-        background-color: #f36;
-        transition: all 2s;
-
-    }
 </style>
