@@ -4,7 +4,8 @@
         <m-list theme="5" slot="list">
             <m-list-item v-for="item in list">
 
-                <img slot="img" :src="item.img">
+                <!-- <img slot="img" :src="item.img"> -->
+                <m-lazyload slot="img" :data-src="item.img" ></m-lazyload>
                 <span slot="title">{{item.title}}</span>
                 <m-list-other slot="other">
                     <div>

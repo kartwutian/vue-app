@@ -1,9 +1,10 @@
 <template>
     <m-infinitescrollrefresh :refreshCallback="refresh" :infiniteCallback="loadList" ref="lsdemo">
 
-        <m-list theme="4">
+        <m-list theme="1">
             <m-list-item v-for="item in list">
-                <img slot="img" :src="item.img">
+                <!-- <img slot="img" :src="item.img"> -->
+                <m-lazyload slot="img" :data-src="item.img" ></m-lazyload>
                 <span slot="title">{{item.title}}</span>
                 <m-list-other slot="other">
                     <div>
@@ -158,6 +159,11 @@
             top: auto;
             bottom: 50%;
         }
+    }
+
+    .test{
+        width: 2rem;
+        height: 2rem;
     }
 
 </style>
