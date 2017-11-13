@@ -10,6 +10,7 @@ import {ListTheme, ListItem, ListOther} from '../list'
 import {InfiniteScroll} from '../infinitescroll'
 import { PullRefresh } from '../pullrefresh'
 import { InfiniteScrollRefresh } from '../infinitescrollrefresh'
+import {Button, ButtonGroup} from '../button'
 
 const install = function (Vue) {
     Vue.component(Layout.name,Layout)
@@ -25,6 +26,8 @@ const install = function (Vue) {
     Vue.component(InfiniteScroll.name,InfiniteScroll)
     Vue.component(PullRefresh.name,PullRefresh)
     Vue.component(InfiniteScrollRefresh.name,InfiniteScrollRefresh)
+    Vue.component(Button.name,Button)
+    Vue.component(ButtonGroup.name,ButtonGroup)
 
     Vue.prototype.$dialog = {
         confirm: Confirm,

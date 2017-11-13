@@ -6,6 +6,7 @@ import Index0 from '@/views/index/Index0'
 import Index1 from '@/views/index/Index1'
 import Index2 from '@/views/index/Index2'
 import Index3 from '@/views/index/Index3'
+import Buttons from '@/views/buttons/buttons'
 
 
 Vue.use(Router)
@@ -40,6 +41,11 @@ export default new Router({
                 }
 
             ]
+        },
+        {
+            path: '/buttons',
+            name: Buttons.name,
+            component: Buttons
         }
     ]/*,
     scrollBehavior (to, from, savedPosition) {
