@@ -1,5 +1,7 @@
 <template>
-    <span><slot></slot><i :class="classes" :style="{color: color}"></i></span>
+    <router-link :to="link">
+        <span><slot></slot><i :class="classes" :style="{color: color}"></i></span>
+    </router-link>
 </template>
 
 <script type="text/babel">
@@ -17,7 +19,8 @@
                     return $utils.isColor(value);
                 },
                 default: '#5C5C5C'
-            }
+            },
+            link: [String, Object]
         },
         computed: {
             classes () {

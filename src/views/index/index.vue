@@ -5,7 +5,7 @@
                     <m-navbar bgcolor="#fff" color="#f36" title="index0" fixed  ref="navbar" :style="styles">
                         <m-navbar-back-icon slot="left"></m-navbar-back-icon>
 
-                        <m-navbar-next-icon slot="right" icon="icon-next" @click.native="toButtons()"></m-navbar-next-icon>
+                        <m-navbar-next-icon slot="right" icon="icon-next" link="/buttons"></m-navbar-next-icon>
                     </m-navbar>
                 </div>
                 <div v-if="isActive[1]" slot="top">
@@ -88,10 +88,10 @@
             }
         },
         methods: {
-            toButtons () {
-                // console.log(this)
-                this.$router.push({ path: '/buttons' })
-            },
+            // toButtons () {
+            //     // console.log(this)
+            //     this.$router.push({ path: '/buttons' })
+            // },
             changeItem (index) {
                 this.isActive = [false,false,false,false]
                 this.isActive[index] = true

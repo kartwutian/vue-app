@@ -1,5 +1,7 @@
 <template>
-    <span><i class="vfont icon-back" :style="{color: color}"></i><slot></slot></span>
+    <router-link :to="link">
+        <span><i class="vfont icon-back" :style="{color: color}"></i><slot></slot></span>
+    </router-link>
 </template>
 
 <script type="text/babel">
@@ -13,6 +15,10 @@
                     return $utils.isColor(value);
                 },
                 default: '#5C5C5C'
+            },
+            link: {
+                type:[String,Object],
+                default: '/'
             }
         }
     }
