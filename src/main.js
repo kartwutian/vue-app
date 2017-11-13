@@ -35,10 +35,12 @@ router.afterEach((to, from) => {
     // 设置保存的位置
     if (store.state.positions[to.path]) {
         setTimeout(() => {
+            // document.querySelector('.m-scrollview').scrollTop = store.state.positions[to.path].position
             $utils.scrollTo(document.querySelector('.m-scrollview'), store.state.positions[to.path].position)
         }, 0)
     } else {
         setTimeout(() => {
+            // document.querySelector('.m-scrollview').scrollTop = store.state.positions[to.path].position
             $utils.scrollTo(document.querySelector('.m-scrollview'), 0)
         }, 0)
     }

@@ -4,22 +4,22 @@
         <m-slider autoplay="50000">
             <m-slider-item>
                 <a href="http://www.ydcss.com">
-                    <m-lazyload data-src="http://img0.imgtn.bdimg.com/it/u=3920398476,1501488149&fm=214&gp=0.jpg" class="test"></m-lazyload>
+                    <m-lazyload data-src="http://img0.imgtn.bdimg.com/it/u=3920398476,1501488149&fm=214&gp=0.jpg"></m-lazyload>
                 </a>
             </m-slider-item>
             <m-slider-item>
                 <a href="http://www.ydcss.com">
-                    <m-lazyload data-src="http://r1.ykimg.com/0510000059FB3229ADC0B0707701F370" class="test"></m-lazyload>
+                    <m-lazyload data-src="http://r1.ykimg.com/0510000059FB3229ADC0B0707701F370"></m-lazyload>
                 </a>
             </m-slider-item>
             <m-slider-item>
                 <a href="http://www.ydcss.com">
-                    <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/3.jpg" class="test"></m-lazyload>
+                    <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/3.jpg"></m-lazyload>
                 </a>
             </m-slider-item>
             <m-slider-item>
                 <a href="http://www.ydcss.com">
-                    <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/3.jpg" class="test"></m-lazyload>
+                    <m-lazyload data-src="http://static.ydcss.com/uploads/ydui/3.jpg"></m-lazyload>
                 </a>
             </m-slider-item>
             <!--<m-slider-item>-->

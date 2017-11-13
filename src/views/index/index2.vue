@@ -2,7 +2,7 @@
     <m-pullrefresh :callback="loadList" ref="prdemo">
 
         <m-list theme="4">
-            <m-list-item v-for="item in list">
+            <m-list-item v-for="item in list" :key="item.img">
                 <!-- <img slot="img" :src="item.img"> -->
                 <m-lazyload slot="img" :data-src="item.img" ></m-lazyload>
                 <span slot="title">{{item.title}}</span>

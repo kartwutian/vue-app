@@ -30,7 +30,7 @@
                     <router-view ref="view"/>
                 </keep-alive>
 
-                <m-backtop @click.native="backTop()"></m-backtop>
+                <m-backtop @click.native="backTop()" v-show="backTopShow"></m-backtop>
 
                 <m-tabbar class="demo-small-pitch" slot="bottom" ref="tabbar" >
                     <m-tabbar-item @click.native="changeItem(0)" title="微信" link="/" :active="isActive[0]">
@@ -62,7 +62,8 @@
             return {
                 styles: {
                     opacity: 0
-                }
+                },
+                backTopShow: false
             }
         },
         mounted () {
@@ -97,6 +98,11 @@
                 }
                 this.oScroll.addEventListener('scroll',()=>{
                     this.styles.opacity = this.scrollTopToOpacity(this.oScroll.scrollTop)
+                    if(this.oScroll.scrollTop > 300){
+                        this.backTopShow = true
+                    }else{
+                        this.backTopShow = false
+                    }
                 })
 
             },
