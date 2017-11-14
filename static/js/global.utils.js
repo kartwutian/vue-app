@@ -107,6 +107,25 @@
                 currentNode = currentNode.parentNode;
             }
             return window;
+        },
+        hasClass: function (elem, cls) {
+            cls = cls || '';
+            if (cls.replace(/\s/g, '').length == 0) return false;
+            return new RegExp(' ' + cls + ' ').test(' ' + elem.className + ' ');
+        },
+        addClass: function (ele, cls) {
+            if (!this.hasClass(ele, cls)) {
+                ele.className = ele.className == '' ? cls : ele.className + ' ' + cls;
+            }
+        },
+        removeClass: function (ele, cls) {
+            if (this.hasClass(ele, cls)) {
+                let newClass = ' ' + ele.className.replace(/[\t\r\n]/g, '') + ' ';
+                while (newClass.indexOf(' ' + cls + ' ') >= 0) {
+                    newClass = newClass.replace(' ' + cls + ' ', ' ');
+                }
+                ele.className = newClass.replace(/^\s+|\s+$/g, '');
+            }
         }
 
     }

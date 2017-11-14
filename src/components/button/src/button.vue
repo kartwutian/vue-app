@@ -1,5 +1,5 @@
 <template>
-    <button :disabled="disabled" :class="classes" :style="{backgroundColor: bgcolor, color: color}">
+    <button :disabled="disabled" :class="classes" :style="styles">
         <slot></slot>
     </button>
 </template>
@@ -46,6 +46,9 @@
                     b = '';
                 }
                 return s + ' ' + b;
+            },
+            styles () {
+                return {backgroundColor: this.bgcolor, color: this.color}
             }
         }
     }

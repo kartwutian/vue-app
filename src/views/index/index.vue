@@ -11,19 +11,19 @@
                 <div v-if="isActive[1]" slot="top">
                     <m-navbar bgcolor="#fff" color="#f36" title="index1" fixed  ref="navbar" :style="styles">
                         <m-navbar-back-icon slot="left"></m-navbar-back-icon>
-                        <m-navbar-next-icon slot="right" icon="icon-next"></m-navbar-next-icon>
+                        <m-navbar-next-icon slot="right" icon="icon-next" link="/1"></m-navbar-next-icon>
                     </m-navbar>
                 </div>
                 <div v-if="isActive[2]" slot="top">
                     <m-navbar bgcolor="#fff" color="#f36" title="index2" fixed  ref="navbar" :style="styles">
                         <m-navbar-back-icon slot="left"></m-navbar-back-icon>
-                        <m-navbar-next-icon slot="right" icon="icon-next"></m-navbar-next-icon>
+                        <m-navbar-next-icon slot="right" icon="icon-next" link="/2"></m-navbar-next-icon>
                     </m-navbar>
                 </div>
                 <div v-if="isActive[3]" slot="top">
                     <m-navbar bgcolor="#fff" color="#f36" title="index3" fixed  ref="navbar" :style="styles">
                         <m-navbar-back-icon slot="left"></m-navbar-back-icon>
-                        <m-navbar-next-icon slot="right" icon="icon-next"></m-navbar-next-icon>
+                        <m-navbar-next-icon slot="right" icon="icon-next" link="/3"></m-navbar-next-icon>
                     </m-navbar>
                 </div>
 

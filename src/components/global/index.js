@@ -11,6 +11,7 @@ import {InfiniteScroll} from '../infinitescroll'
 import { PullRefresh } from '../pullrefresh'
 import { InfiniteScrollRefresh } from '../infinitescrollrefresh'
 import {Button, ButtonGroup} from '../button'
+import {ActionSheet} from '../actionsheet'
 
 const install = function (Vue) {
     Vue.component(Layout.name,Layout)
@@ -28,6 +29,7 @@ const install = function (Vue) {
     Vue.component(InfiniteScrollRefresh.name,InfiniteScrollRefresh)
     Vue.component(Button.name,Button)
     Vue.component(ButtonGroup.name,ButtonGroup)
+    Vue.component(ActionSheet.name,ActionSheet)
 
     Vue.prototype.$dialog = {
         confirm: Confirm,
