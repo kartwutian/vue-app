@@ -8,6 +8,10 @@ import Index2 from '@/views/index/Index2'
 import Index3 from '@/views/index/Index3'
 import Buttons from '@/views/buttons/buttons'
 
+import Rank from '@/views/music/rank/rank'
+import Recommend from '@/views/music/recommend/recommend'
+import Singer from '@/views/music/singer/singer'
+import Search from '@/views/music/search/search'
 
 Vue.use(Router)
 
@@ -17,12 +21,35 @@ export default new Router({
             path: '/',
             name: Index.name,
             component: Index,
-            redirect: '/hello',
+            redirect: '/music/recommend',
             children: [
                 {
-                    path: 'hello',
+                    path: '/music',
                     name: Index0.name,
-                    component: Index0
+                    component: Index0,
+                    children: [
+                        {
+                            path: '/music/recommend',
+                            name: Recommend.name,
+                            component: Recommend,
+                            alias: '/music',
+                        },
+                        {
+                            path: '/music/singer',
+                            name: Singer.name,
+                            component: Singer
+                        },
+                        {
+                            path: '/music/rank',
+                            name: Rank.name,
+                            component: Rank
+                        },
+                        {
+                            path: '/music/search',
+                            name: Search.name,
+                            component: Search
+                        }
+                    ]
                 },
                 {
                     path: 'friends',
@@ -47,14 +74,12 @@ export default new Router({
             name: Buttons.name,
             component: Buttons
         }
-    ]/*,
+    ],
     scrollBehavior (to, from, savedPosition) {
-        console.log(to,from)
-        console.log(savedPosition)
         if (savedPosition) {
             return savedPosition
         } else {
             return { x: 0, y: 0 }
         }
-    }*/
+    }
 })

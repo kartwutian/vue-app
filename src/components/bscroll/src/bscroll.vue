@@ -1,6 +1,8 @@
 <template>
-    <section ref="wrapper">
-        <slot></slot>
+    <section class="m-bscroll-wrap" ref="wrapper">
+        <div>
+            <slot></slot>
+        </div>
     </section>
 </template>
 
@@ -112,7 +114,8 @@
 
                 // 是否派发顶部下拉事件，用于下拉刷新
                 if (this.pulldown) {
-                    this.scroll.on('touchend', (pos) => {
+                    console.log(this.scroll)
+                    this.scroll.on('touchEnd', (pos) => {
                         // 下拉动作
                         if (pos.y > 50) {
                             this.$emit('pulldown')

@@ -1,9 +1,7 @@
 <template>
-    <m-infinitescrollrefresh :refreshCallback="refresh" :infiniteCallback="loadList" ref="lsdemo">
-
+    <m-bscroll :data = "list" pullup @scrollToEnd = "_loadList" pulldown @pulldown="_refresh" ref="lsdemo">
         <m-list theme="1">
             <m-list-item v-for="item in list" :key="item.img">
-                <!-- <img slot="img" :src="item.img"> -->
                 <m-lazyload slot="img" :data-src="item.img" ></m-lazyload>
                 <span slot="title">{{item.title}}</span>
                 <m-list-other slot="other">
@@ -15,8 +13,8 @@
                 </m-list-other>
             </m-list-item>
         </m-list>
-
-    </m-infinitescrollrefresh>
+        <m-list-loading :isLoading="isLoading" :isDone="isDone"></m-list-loading>
+    </m-bscroll>
 
 </template>
 
@@ -26,9 +24,11 @@
     export default {
         data() {
              return {
-                page: 1,
-                pageSize: 10,
-                list: [
+                 isLoading: true,
+                 isDone: false,
+                 page: 1,
+                 pageSize: 10,
+                 list: [
                     {
                         img: "http://img1.shikee.com/try/2016/06/23/14381920926024616259.jpg",
                         title: "标题标题标题标题标题",
@@ -78,28 +78,35 @@
                         productprice: 89.36
                     }
                 ]
-            }
+             }
+        },
+        created () {
+            this._loadList()
         },
         methods: {
-            refresh() {
-                const url = 'http://list.ydui.org/getdata.php';
-
-                refreshTest().then((response) => {
-
+            _refresh() {
+                this.page = 1;
+                console.log(this.page,this.pageSize)
+                queryTest({
+                    page: this.page,
+                    pagesize: this.pageSize
+                }).then((response) => {
                     console.log(response)
-                    const _list = response;
+                    setTimeout( ( ) => {
+                        // 请求太快了，延迟一下方便看效果！
 
-                    this.list = [..._list, ...this.list];
+                        this.list = response;
 
-                    this.$dialog.toast({
-                        mes: _list.length > 0 ? '为您更新了' + _list.length + '条内容' : '已是最新内容'
-                    });
+                        this.$dialog.toast({
+                            mes: '已刷新'
+                        });
 
-                    this.$refs.lsdemo.$emit('ydui.pullrefresh.finishLoad');
-
+                    }, 300);
                 });
+
             },
-            loadList() {
+            _loadList() {
+                console.log(this.page,this.pageSize)
                 queryTest({
                     page: this.page,
                     pagesize: this.pageSize
@@ -113,15 +120,17 @@
 
                         if (_list.length < this.pageSize || this.page >= 4) {
                             // 所有数据加载完毕
-                            this.$refs.lsdemo.$emit('ydui.infinitescroll.loadedDone');
+                            this.isLoading = false;
+                            this.isDone = true;
+                            this._loadList = function () {
+                                return
+                            }
                             return;
                         }
 
-                        // 单次请求数据完毕
-                        this.$refs.lsdemo.$emit('ydui.infinitescroll.finishLoad');
 
                         this.page++;
-                    }, 3000);
+                    }, 300);
                 });
             }
         }

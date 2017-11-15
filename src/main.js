@@ -25,7 +25,7 @@ const mvvm = new Vue({
 })
 
 
-// 主要通过afterEach钩子
+/*// 主要通过afterEach钩子
 router.afterEach((to, from) => {
     // 将位置保存在vuex中
     store.commit('SAVE_POSITION', {
@@ -35,13 +35,13 @@ router.afterEach((to, from) => {
     // 设置保存的位置
     if (store.state.positions[to.path]) {
         setTimeout(() => {
-            // document.querySelector('.m-scrollview').scrollTop = store.state.positions[to.path].position
-            $utils.scrollTo(document.querySelector('.m-scrollview'), store.state.positions[to.path].position)
+            document.querySelector('.m-scrollview').scrollTop = store.state.positions[to.path].position
+            // $utils.scrollTo(document.querySelector('.m-scrollview'), store.state.positions[to.path].position)
         }, 0)
     } else {
         setTimeout(() => {
-            // document.querySelector('.m-scrollview').scrollTop = store.state.positions[to.path].position
-            $utils.scrollTo(document.querySelector('.m-scrollview'), 0)
+            document.querySelector('.m-scrollview').scrollTop = 0
+            // $utils.scrollTo(document.querySelector('.m-scrollview'), 0)
         }, 0)
     }
-})
+})*/

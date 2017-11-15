@@ -111,7 +111,7 @@
                         this.$refs.lsdemo.$emit('ydui.infinitescroll.finishLoad');
 
                         this.page++;
-                    }, 3000);
+                    }, 300);
                 });
             }
         }

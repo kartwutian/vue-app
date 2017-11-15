@@ -12,6 +12,10 @@ import { PullRefresh } from '../pullrefresh'
 import { InfiniteScrollRefresh } from '../infinitescrollrefresh'
 import {Button, ButtonGroup} from '../button'
 import {ActionSheet} from '../actionsheet'
+import {NewTab, NewTabItem} from '../tabs'
+import { BScroll} from  '../bscroll'
+import {Slider, SliderItem} from  '../slider'
+import { ListLoading } from '../tips'
 
 const install = function (Vue) {
     Vue.component(Layout.name,Layout)
@@ -30,6 +34,12 @@ const install = function (Vue) {
     Vue.component(Button.name,Button)
     Vue.component(ButtonGroup.name,ButtonGroup)
     Vue.component(ActionSheet.name,ActionSheet)
+    Vue.component(NewTab.name,NewTab)
+    Vue.component(NewTabItem.name,NewTabItem)
+    Vue.component(BScroll.name,BScroll)
+    Vue.component(Slider.name,Slider)
+    Vue.component(SliderItem.name,SliderItem)
+    Vue.component(ListLoading.name,ListLoading)
 
     Vue.prototype.$dialog = {
         confirm: Confirm,

@@ -5,8 +5,8 @@ export default {
         }
     },
     positions:{
-        '/hello': {
-            name: '/hello',
+        '/music': {
+            name: '/music',
             position: 0
         }
     }
