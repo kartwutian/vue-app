@@ -1,7 +1,7 @@
 /* 全局组件引入 */
 
 import {Confirm, Alert, Toast, Notify, Loading,Preload } from '../dialog'
-import { Layout } from '../layout'
+import { Layout,SubLayout } from '../layout'
 import { Lazyload } from '../lazyload'
 import { NavBar, NavBarBackIcon, NavBarNextIcon } from '../navbar'
 import { Badge } from '../badge'
@@ -19,6 +19,7 @@ import { ListLoading } from '../tips'
 
 const install = function (Vue) {
     Vue.component(Layout.name,Layout)
+    Vue.component(SubLayout.name,SubLayout)
     Vue.component(Lazyload.name,Lazyload)
     Vue.component(NavBar.name,NavBar)
     Vue.component(NavBarBackIcon.name,NavBarBackIcon)

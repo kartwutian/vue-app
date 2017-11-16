@@ -75,6 +75,10 @@
             refreshDelay: {
                 type: Number,
                 default: 20
+            },
+            pullDownRefresh:{
+                type: [Boolean,Object],
+                default: false
             }
         },
         mounted() {
@@ -92,7 +96,8 @@
                 this.scroll = new BScroll(this.$refs.wrapper, {
                     probeType: this.probeType,
                     click: this.click,
-                    scrollX: this.scrollX
+                    scrollX: this.scrollX,
+                    pullDownRefresh: this.pullDownRefresh
                 })
 
                 // 是否派发滚动事件

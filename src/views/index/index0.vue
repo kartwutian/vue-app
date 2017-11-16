@@ -1,18 +1,19 @@
 <template>
-    <m-bscroll>
-        <m-newtab>
+    <m-sub-layout>
+        <m-newtab slot="top">
             <m-newtab-item v-for="item in tabs" :link="item.link" :title="item.title" :key="item.id"></m-newtab-item>
         </m-newtab>
         <keep-alive>
             <router-view/>
         </keep-alive>
-    </m-bscroll>
+    </m-sub-layout>
 </template>
 
 <script>
+    import MSubLayout from "../../components/layout/src/sublayout";
 
     export default {
-        name: 'm-index0',
+        components: {MSubLayout}, name: 'm-index0',
         data () {
             return {
                 tabs : [

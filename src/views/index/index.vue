@@ -2,26 +2,26 @@
     <div id="app">
             <m-layout>
                 <div v-if="isActive[0]" slot="top">
-                    <m-navbar bgcolor="#fff" color="#f36" title="音乐" fixed  ref="navbar" :style="styles" v-show="navbarShow">
+                    <m-navbar bgcolor="#fff" color="#f36" title="音乐" ref="navbar">
                         <m-navbar-back-icon slot="left"></m-navbar-back-icon>
 
                         <m-navbar-next-icon slot="right" icon="icon-center-hollow" link="/music/center"></m-navbar-next-icon>
                     </m-navbar>
                 </div>
                 <div v-if="isActive[1]" slot="top">
-                    <m-navbar bgcolor="#fff" color="#f36" title="音乐" fixed  ref="navbar" :style="styles" v-show="navbarShow">
+                    <m-navbar bgcolor="#fff" color="#f36" title="音乐"  ref="navbar">
                         <m-navbar-back-icon slot="left"></m-navbar-back-icon>
                         <m-navbar-next-icon slot="right" icon="icon-center-hollow" link="/buttons"></m-navbar-next-icon>
                     </m-navbar>
                 </div>
                 <div v-if="isActive[2]" slot="top">
-                    <m-navbar bgcolor="#fff" color="#f36" title="index2" fixed  ref="navbar" :style="styles" v-show="navbarShow">
+                    <m-navbar bgcolor="#fff" color="#f36" title="index2" ref="navbar">
                         <m-navbar-back-icon slot="left"></m-navbar-back-icon>
                         <m-navbar-next-icon slot="right" icon="icon-next" link="/2"></m-navbar-next-icon>
                     </m-navbar>
                 </div>
                 <div v-if="isActive[3]" slot="top">
-                    <m-navbar bgcolor="#fff" color="#f36" title="index3" fixed  ref="navbar" :style="styles" v-show="navbarShow">
+                    <m-navbar bgcolor="#fff" color="#f36" title="index3"  ref="navbar">
                         <m-navbar-back-icon slot="left"></m-navbar-back-icon>
                         <m-navbar-next-icon slot="right" icon="icon-next" link="/3"></m-navbar-next-icon>
                     </m-navbar>
@@ -60,15 +60,11 @@
         name: 'm-index',
         data () {
             return {
-                styles: {
-                    opacity: 0
-                },
-                navbarShow: false,
                 backTopShow: false
             }
         },
         mounted () {
-            this.bindScroll()
+
 
         },
         computed: {
@@ -103,7 +99,6 @@
                 }
                 this.oScroll.addEventListener('scroll',()=>{
                     this.styles.opacity = this.scrollTopToOpacity(this.oScroll.scrollTop)
-                    this.navbarShow = this.styles.opacity === 0 ? false : true
                     if(this.oScroll.scrollTop > 300){
                         this.backTopShow = true
                     }else{
