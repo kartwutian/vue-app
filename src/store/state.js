@@ -9,6 +9,9 @@ export default {
             name: '/music',
             position: 0
         }
+    },
+    music: {
+        songSheet: {}
     }
 
 }

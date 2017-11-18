@@ -42,11 +42,10 @@ export function getDiscList() {
  */
 
 export function getCDInfo(disstid) {
-    const url = 'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg'
+    const url = '/api/getCDInfo'
     const data = Object.assign({}, commonParams, {
         disstid,
         g_tk:5381,
-        jsonpCallback: 'playlistinfoCallback',
         loginUin:0,
         hostUin:0,
         type: 1,
@@ -54,12 +53,12 @@ export function getCDInfo(disstid) {
         utf8: 1,
         onlysong: 0,
         platform: 'yqq',
+        format: 'json',
         needNewCode: 0
     })
-    return jsonp(url, data, {
-        param: 'jsonpCallback'
+    return axios.get(url, {
+        params: data
     })
-
 }
 
 

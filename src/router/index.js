@@ -12,6 +12,7 @@ import Rank from '@/views/music/rank/rank'
 import Recommend from '@/views/music/recommend/recommend'
 import Singer from '@/views/music/singer/singer'
 import Search from '@/views/music/search/search'
+import SongSheet from '@/views/music/songsheet/songsheet'
 
 Vue.use(Router)
 
@@ -73,6 +74,11 @@ export default new Router({
             path: '/buttons',
             name: Buttons.name,
             component: Buttons
+        },
+        {
+            path: '/music/recommend/:id',
+            name: SongSheet.name,
+            component: SongSheet
         }
     ],
     scrollBehavior (to, from, savedPosition) {

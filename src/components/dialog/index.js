@@ -4,6 +4,7 @@ import Toast from './src/toast';
 import Notify from './src/notify';
 import Loading from './src/loading';
 import Preload from './src/preload';
+import Notice from './src/notice';
 
 export {
     Confirm,
@@ -11,5 +12,6 @@ export {
     Toast,
     Notify,
     Loading,
-    Preload
+    Preload,
+    Notice,
 };

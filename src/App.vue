@@ -3,7 +3,7 @@
         <keep-alive>
             <router-view />
         </keep-alive>
-        <m-avatar-bar></m-avatar-bar>
+        <m-avatar-bar @click.native="" class=""></m-avatar-bar>
     </div>
 </template>
 
@@ -16,6 +16,11 @@
         name: 'app',
         components: {
             'm-avatar-bar': AvatarBar
+        },
+        methods: {
+            showPlayer () {
+
+            }
         }
 
     }

@@ -7,7 +7,7 @@ const instance = new LoadingConstructor({
 });
 
 LoadingConstructor.prototype.open = (title) => {
-    instance.title = title || '正在加载';
+    instance.title = title || '加载中';
 
     document.body.appendChild(instance.$el);
 

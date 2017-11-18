@@ -10,7 +10,7 @@
         </m-slider>
         <div style="height: 1rem;text-align: center; color: #f36;line-height: 1rem;font-size: 14px;"  >热门歌单推荐</div>
         <m-list theme="4">
-            <div  v-for="item in list" :key="item.content_id"  @click="_getCDInfo(item.content_id)">
+            <div  v-for="item in list" :key="item.content_id"  @click="linkTo(item.content_id)">
                 <m-list-item>
                     <m-lazyload slot="img" :data-src="item.cover" noBgImage ></m-lazyload>
                     <span slot="title" style="font-size: 16px;font-weight: 600;" >{{item.username}}</span>
@@ -74,7 +74,7 @@
                     this.slider = res.data.slider
                     setTimeout( () => {
                         this.$dialog.preload.close()
-                    },300)
+                    },500)
                 })
             },
             _getDiscList () {
@@ -85,15 +85,16 @@
                 })
             },
             _getCDInfo(disstid){
-                alert(disstid)
-                function playlistinfoCallback(data) {
-                    return data
-                }
                 getCDInfo(disstid).then( (res) => {
-                   console.log(res)
+                    console.log(res.data.cdlist[0])
+                    this.$store.commit('UPDATASONGSHEET',res.data.cdlist[0])
                 }).catch( (err) => {
                     console.log(err)
                 })
+            },
+            linkTo (id) {
+                this._getCDInfo(id)
+                this.$router.push('/music/recommend/'+id)
             }
         }
     }

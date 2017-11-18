@@ -1,6 +1,6 @@
 /* 全局组件引入 */
 
-import {Confirm, Alert, Toast, Notify, Loading,Preload } from '../dialog'
+import {Confirm, Alert, Toast, Notify, Loading, Preload, Notice } from '../dialog'
 import { Layout,SubLayout } from '../layout'
 import { Lazyload } from '../lazyload'
 import { NavBar, NavBarBackIcon, NavBarNextIcon } from '../navbar'
@@ -48,7 +48,8 @@ const install = function (Vue) {
         toast: Toast,
         notify: Notify,
         loading: Loading,
-        preload: Preload
+        preload: Preload,
+        notice: Notice
     }
 };
 

@@ -30,8 +30,7 @@
             mes: String,
             opts: {
                 type: [Array, Function],
-                default: () => {
-                }
+                default: function () {}
             }
         }
     }
