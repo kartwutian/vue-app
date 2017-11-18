@@ -1,57 +1,47 @@
 <template>
-    <div id="app">
-            <m-layout>
-                <div v-if="isActive[0]" slot="top">
-                    <m-navbar bgcolor="#fff" color="#f36" title="音乐" ref="navbar">
-                        <m-navbar-back-icon slot="left"></m-navbar-back-icon>
+        <m-layout>
+            <m-navbar bgcolor="#fff" color="#f36" title="音乐" ref="navbar" v-if="isActive[0]" slot="top">
+                <m-navbar-back-icon slot="left"></m-navbar-back-icon>
 
-                        <m-navbar-next-icon slot="right" icon="icon-center-hollow" link="/music/center"></m-navbar-next-icon>
-                    </m-navbar>
-                </div>
-                <div v-if="isActive[1]" slot="top">
-                    <m-navbar bgcolor="#fff" color="#f36" title="音乐"  ref="navbar">
-                        <m-navbar-back-icon slot="left"></m-navbar-back-icon>
-                        <m-navbar-next-icon slot="right" icon="icon-center-hollow" link="/buttons"></m-navbar-next-icon>
-                    </m-navbar>
-                </div>
-                <div v-if="isActive[2]" slot="top">
-                    <m-navbar bgcolor="#fff" color="#f36" title="index2" ref="navbar">
-                        <m-navbar-back-icon slot="left"></m-navbar-back-icon>
-                        <m-navbar-next-icon slot="right" icon="icon-next" link="/2"></m-navbar-next-icon>
-                    </m-navbar>
-                </div>
-                <div v-if="isActive[3]" slot="top">
-                    <m-navbar bgcolor="#fff" color="#f36" title="index3"  ref="navbar">
-                        <m-navbar-back-icon slot="left"></m-navbar-back-icon>
-                        <m-navbar-next-icon slot="right" icon="icon-next" link="/3"></m-navbar-next-icon>
-                    </m-navbar>
-                </div>
+                <m-navbar-next-icon slot="right" icon="icon-center-hollow" link="/music/center"></m-navbar-next-icon>
+            </m-navbar>
+            <m-navbar bgcolor="#fff" color="#f36" title="音乐"  ref="navbar" v-if="isActive[1]" slot="top">
+                <m-navbar-back-icon slot="left"></m-navbar-back-icon>
+                <m-navbar-next-icon slot="right" icon="icon-center-hollow" link="/buttons"></m-navbar-next-icon>
+            </m-navbar>
+            <m-navbar bgcolor="#fff" color="#f36" title="index2" ref="navbar" v-if="isActive[2]" slot="top">
+                <m-navbar-back-icon slot="left"></m-navbar-back-icon>
+                <m-navbar-next-icon slot="right" icon="icon-next" link="/2"></m-navbar-next-icon>
+            </m-navbar>
+            <m-navbar bgcolor="#fff" color="#f36" title="index3"  ref="navbar" v-if="isActive[3]" slot="top">
+                <m-navbar-back-icon slot="left"></m-navbar-back-icon>
+                <m-navbar-next-icon slot="right" icon="icon-next" link="/3"></m-navbar-next-icon>
+            </m-navbar>
 
-                <keep-alive>
-                    <router-view ref="view"/>
-                </keep-alive>
+            <keep-alive>
+                <router-view ref="view"/>
+            </keep-alive>
 
-                <m-backtop @click.native="backTop()" v-show="backTopShow"></m-backtop>
+            <m-backtop @click.native="backTop()" v-show="backTopShow"></m-backtop>
 
-                <m-tabbar class="demo-small-pitch" slot="bottom" ref="tabbar" >
-                    <m-tabbar-item @click.native="changeItem(0)" title="音乐" link="/" :active="isActive[0]">
-                        <i slot="icon" class="vfont icon-weixin"></i>
-                        <m-badge slot="badge" type="danger">2</m-badge>
-                    </m-tabbar-item>
-                    <m-tabbar-item @click.native="changeItem(1)" title="好友" link="/friends" :active="isActive[1]" >
-                        <i slot="icon" class="vfont icon-discover"></i>
-                    </m-tabbar-item>
-                    <div style="width:1.4rem;"></div>
-                    <m-tabbar-item @click.native="changeItem(2)" title="发现" link="/discover" dot :active="isActive[2]">
-                        <i slot="icon" class="vfont icon-discover"></i>
-                    </m-tabbar-item>
-                    <m-tabbar-item @click.native="changeItem(3)" title="图片" link="/center" :active="isActive[3]">
-                        <img slot="icon" src="http://static.ydcss.com/ydui/img/logo.png"/>
-                    </m-tabbar-item>
-                </m-tabbar>
-            </m-layout>
+            <m-tabbar class="demo-small-pitch" slot="bottom" ref="tabbar" >
+                <m-tabbar-item @click.native="changeItem(0)" title="音乐" link="/" :active="isActive[0]">
+                    <i slot="icon" class="vfont icon-weixin"></i>
+                    <m-badge slot="badge" type="danger">2</m-badge>
+                </m-tabbar-item>
+                <m-tabbar-item @click.native="changeItem(1)" title="好友" link="/friends" :active="isActive[1]" >
+                    <i slot="icon" class="vfont icon-discover"></i>
+                </m-tabbar-item>
+                <div style="width:1.4rem;"></div>
+                <m-tabbar-item @click.native="changeItem(2)" title="发现" link="/discover" dot :active="isActive[2]">
+                    <i slot="icon" class="vfont icon-discover"></i>
+                </m-tabbar-item>
+                <m-tabbar-item @click.native="changeItem(3)" title="图片" link="/center" :active="isActive[3]">
+                    <img slot="icon" src="http://static.ydcss.com/ydui/img/logo.png"/>
+                </m-tabbar-item>
+            </m-tabbar>
+        </m-layout>
 
-    </div>
 </template>
 
 <script>
