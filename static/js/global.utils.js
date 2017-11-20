@@ -126,6 +126,13 @@
                 }
                 ele.className = newClass.replace(/^\s+|\s+$/g, '');
             }
+        },
+        getData: function(el, name, val) {
+            const prefix = 'data-'
+            if (val) {
+                return el.setAttribute(prefix + name, val)
+            }
+            return el.getAttribute(prefix + name)
         }
 
     }

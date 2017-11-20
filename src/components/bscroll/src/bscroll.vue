@@ -1,8 +1,9 @@
 <template>
     <section class="m-bscroll-wrap" ref="wrapper">
-        <div>
+        <div class="m-bscroll-content">
             <slot></slot>
         </div>
+        <slot name="out"></slot>
     </section>
 </template>
 

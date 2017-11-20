@@ -1,10 +1,9 @@
 <template>
-    <div class="singer">
-        <div>singer</div>
-    </div>
+    <m-contacts :data="singers"></m-contacts>
 </template>
 
 <script type="text/babel">
+    import {Contacts} from '@/components/contacts'
     import {getSingerList } from '@/api/singer'
 
     const HOT_NAME = '热门'
@@ -18,7 +17,7 @@
         },
         created () {
             getSingerList().then( (res) => {
-                this._normalizeSinger(res.data.list)
+                this.singers = this._normalizeSinger(res.data.list)
             })
         },
         methods: {
@@ -70,6 +69,9 @@
                 return (hot.concat(ret)).concat(others)
 
             }
+        },
+        components:{
+            'm-contacts': Contacts
         }
     }
 </script>

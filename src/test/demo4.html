@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #0f0;
+            transition: all 2s;
+            margin-left: 100px;
+        }
+        .active{
+            width:375px;
+            height: 375px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+
+</div>
+<script>
+    document.querySelector('.box').onclick = function (evt) {
+//        this.className += ' active'
+        history.pushState({a:123},null,'/')
+    }
+    window.addEventListener('popstate',function (ret) {
+        console.log(ret)
+    })
+</script>
+</body>
+</html>
