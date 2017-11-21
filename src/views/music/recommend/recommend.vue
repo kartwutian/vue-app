@@ -1,27 +1,30 @@
 <template>
+    <div class="recommend-wrap" >
+        <m-bscroll class="recommend" :data="list">
+            <m-slider autoplay="50000">
+                <m-slider-item v-for="item in slider" :key="item.id" class="music-silder">
+                    <a :href="item.linkUrl">
+                        <m-lazyload :data-src="item.picUrl"></m-lazyload>
+                    </a>
+                </m-slider-item>
+            </m-slider>
+            <div style="height: 1rem;text-align: center; color: #f36;line-height: 1rem;font-size: 14px;"  >热门歌单推荐</div>
+            <m-list theme="4">
+                <div  v-for="item in list" :key="item.content_id"  @click="linkTo(item.content_id)">
+                    <m-list-item>
+                        <m-lazyload slot="img" :data-src="item.cover" noBgImage ></m-lazyload>
+                        <span slot="title" style="font-size: 16px;font-weight: 600;" >{{item.username}}</span>
+                        <m-list-other slot="other" style="font-size: 14px;">
+                            <div>{{item.title}}</div>
+                        </m-list-other>
+                    </m-list-item>
+                </div>
 
-    <m-bscroll class="recommend" :data="list">
-        <m-slider autoplay="50000">
-            <m-slider-item v-for="item in slider" :key="item.id" class="music-silder">
-                <a :href="item.linkUrl">
-                    <m-lazyload :data-src="item.picUrl"></m-lazyload>
-                </a>
-            </m-slider-item>
-        </m-slider>
-        <div style="height: 1rem;text-align: center; color: #f36;line-height: 1rem;font-size: 14px;"  >热门歌单推荐</div>
-        <m-list theme="4">
-            <div  v-for="item in list" :key="item.content_id"  @click="linkTo(item.content_id)">
-                <m-list-item>
-                    <m-lazyload slot="img" :data-src="item.cover" noBgImage ></m-lazyload>
-                    <span slot="title" style="font-size: 16px;font-weight: 600;" >{{item.username}}</span>
-                    <m-list-other slot="other" style="font-size: 14px;">
-                        <div>{{item.title}}</div>
-                    </m-list-other>
-                </m-list-item>
-            </div>
+            </m-list>
+        </m-bscroll>
+        <router-view/>
+    </div>
 
-        </m-list>
-    </m-bscroll>
 </template>
 
 <script type="text/babel">
@@ -84,22 +87,16 @@
                     console.log(err)
                 })
             },
-            _getCDInfo(disstid){
-                getCDInfo(disstid).then( (res) => {
-                    console.log(res.data.cdlist[0])
-                    this.$store.commit('UPDATASONGSHEET',res.data.cdlist[0])
-                }).catch( (err) => {
-                    console.log(err)
-                })
-            },
+
             linkTo (id) {
-                this._getCDInfo(id)
                 this.$router.push('/music/recommend/'+id)
             }
         }
     }
 </script>
 
-<style >
-
+<style lang="less">
+    .recommend-wrap{
+        height: 100%;
+    }
 </style>

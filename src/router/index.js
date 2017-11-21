@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/views/HelloWorld'
 import Index from '@/views/index/index'
 import Index0 from '@/views/index/Index0'
 import Index1 from '@/views/index/Index1'
@@ -34,6 +33,13 @@ export default new Router({
                             name: Recommend.name,
                             component: Recommend,
                             alias: '/music',
+                            children: [
+                                {
+                                    path: '/music/recommend/:id',
+                                    name: SongSheet.name,
+                                    component: SongSheet
+                                }
+                            ]
                         },
                         {
                             path: '/music/singer',
@@ -74,11 +80,6 @@ export default new Router({
             path: '/buttons',
             name: Buttons.name,
             component: Buttons
-        },
-        {
-            path: '/music/recommend/:id',
-            name: SongSheet.name,
-            component: SongSheet
         }
     ],
     scrollBehavior (to, from, savedPosition) {

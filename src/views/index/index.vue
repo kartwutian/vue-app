@@ -1,19 +1,19 @@
 <template>
         <m-layout>
-            <m-navbar bgcolor="#fff" color="#f36" title="音乐" ref="navbar" v-if="isActive[0]" slot="top">
+            <m-navbar bgcolor="#fff" color="#f36" title="音乐" ref="navbar" v-if="isActive[0]" bottomLine slot="top">
                 <m-navbar-back-icon slot="left"></m-navbar-back-icon>
 
                 <m-navbar-next-icon slot="right" icon="icon-center-hollow" link="/music/center"></m-navbar-next-icon>
             </m-navbar>
-            <m-navbar bgcolor="#fff" color="#f36" title="音乐"  ref="navbar" v-if="isActive[1]" slot="top">
+            <m-navbar bgcolor="#fff" color="#f36" title="音乐"  ref="navbar" v-if="isActive[1]" bottomLine slot="top">
                 <m-navbar-back-icon slot="left"></m-navbar-back-icon>
                 <m-navbar-next-icon slot="right" icon="icon-center-hollow" link="/buttons"></m-navbar-next-icon>
             </m-navbar>
-            <m-navbar bgcolor="#fff" color="#f36" title="index2" ref="navbar" v-if="isActive[2]" slot="top">
+            <m-navbar bgcolor="#fff" color="#f36" title="index2" ref="navbar" v-if="isActive[2]" bottomLine slot="top">
                 <m-navbar-back-icon slot="left"></m-navbar-back-icon>
                 <m-navbar-next-icon slot="right" icon="icon-next" link="/2"></m-navbar-next-icon>
             </m-navbar>
-            <m-navbar bgcolor="#fff" color="#f36" title="index3"  ref="navbar" v-if="isActive[3]" slot="top">
+            <m-navbar bgcolor="#fff" color="#f36" title="index3"  ref="navbar" v-if="isActive[3]" bottomLine slot="top">
                 <m-navbar-back-icon slot="left"></m-navbar-back-icon>
                 <m-navbar-next-icon slot="right" icon="icon-next" link="/3"></m-navbar-next-icon>
             </m-navbar>

@@ -1,5 +1,5 @@
 <template>
-    <header class="m-navbar navbar-bottom-line-color" :class="classes" :style="{backgroundColor: bgcolor, height: height}">
+    <header class="m-navbar " :class="classes"  :style="{backgroundColor: bgcolor, height: height}">
         <div class="m-navbar-item">
             <slot name="left"></slot>
         </div>
@@ -46,13 +46,18 @@
                     return /^(\.|\d+\.)?\d+(px|rem)$/.test(value);
                 },
                 default: '1rem'
-            }
+            },
+            bottomLine: Boolean
         },
         mounted(){
         },
         computed: {
             classes() {
-                return this.fixed ? 'm-navbar-fixed' : '';
+
+                return {
+                    'm-navbar-fixed': this.fixed,
+                    'm-bottom-line': this.bottomLine
+                };
             }
         }
     }

@@ -1,81 +1,83 @@
 <template>
-    <m-layout>
-        <div class="music-list" slot="top">
-            <header class="nav">
-                <div class="back" >
-                    <i class="vfont icon-back"></i>
-                </div>
-                <h1 class="title">随机播放全部随机播放全部随机播放全部随机播放全部随机播放全部</h1>
-            </header>
+    <transition name="slider">
+        <div class="fixed">
+            <m-layout>
+                <m-navbar bgcolor="#fff" color="#f36" title="音乐"  slot="top">
+                    <m-navbar-back-icon slot="left"></m-navbar-back-icon>
+                    <m-navbar-next-icon slot="right" icon="icon-center-hollow" link="/music/center"></m-navbar-next-icon>
+                </m-navbar>
 
-            <!--<div class="bg-image" ref="bgImage">-->
-                <!--<div class="play-wrapper">-->
-                    <!--<div ref="playBtn" class="play" >-->
-                        <!--<i class="icon-play"></i>-->
-                        <!--<span class="text">随机播放全部</span>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="filter" ref="filter"></div>-->
-            <!--</div>-->
-            <!--<div class="bg-layer" ref="layer"></div>-->
-
+                <m-bscroll :data="songs">
+                    <song-list :songs="songs"></song-list>
+                    <m-list-loading isLoading ></m-list-loading>
+                </m-bscroll>
+            </m-layout>
         </div>
-        <m-bscroll :data="songs" @scroll="scroll"
-                   class="list" ref="list">
-                <li v-for="item in songs" class="song-list-item">
-                    <p class="name">{{ item.songorig}} </p>
-                    <p class="desc">{{item.singer[0].name +' | '+ item.songname}}</p>
-                </li>
-
-        </m-bscroll>
-    </m-layout>
+    </transition>
 </template>
 
 <script type="text/babel">
+    import SongList from './songlist.vue'
+    import { getCDInfo } from '@/api/recommend'
+
     export default {
         data () {
-            return {}
+            return {
+                songs: []
+            }
+        },
+        created () {
+            this._getCDInfo(this.$route.params.id)
         },
         computed:  {
-            songs: {
-                get () {
-                    return this.$store.state.music.songSheet.songlist
-                }
-            }
+
         },
         methods: {
             scroll(){
 
+            },
+            _getCDInfo(disstid){
+                getCDInfo(disstid).then( (res) => {
+                    console.log(res.data.cdlist[0].songlist)
+                    this.songs = res.data.cdlist[0].songlist
+
+                }).catch( (err) => {
+                    console.log(err)
+                })
             }
+        },
+        components: {
+            SongList
         }
     }
 </script>
 
-<style lang="less" scoped="">
+<style lang="less" >
+    .slider-enter-active, .slider-leave-active {
+        transition: all .2s;
+    }
+    .slider-enter, .slider-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+        transform: translate3d(100%,0,0)
+    }
+
+    .fixed{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index:1000;
+        background-color: #efefef;
+    }
+
+    .bg-image{
+        width: 100%;
+        height: 0;
+        padding-top: 70%;
+        background-image: url(http://p.qpic.cn/music_cover/tVHdkb5iaiaTyibtbrmFXiaX9kdDXz6ojhty7j6FibiaEWwhWO0FQgp6GFKw/600?n=1);
+    }
     .music-list{
-        .nav{
-            background-color: #f00;
-            width: 100%;
-            top:0;
-            left:0;
-            z-index: 1;
-            display: flex;
-            color: #fff;
-            line-height: .8rem;
-            .back{
-                padding: 0 .2rem;
-            }
-            .title{
-                flex: 1;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                white-space: nowrap;
-                text-align: center;
-                font-size: 16px;
-                padding: 0 .4rem;
-                font-weight: normal;
-            }
-        }
+
         .bg-image{
             background-image: url(http://p.qpic.cn/music_cover/tVHdkb5iaiaTyibtbrmFXiaX9kdDXz6ojhty7j6FibiaEWwhWO0FQgp6GFKw/600?n=1);
             position: relative;
