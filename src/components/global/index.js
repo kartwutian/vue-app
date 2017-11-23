@@ -15,7 +15,7 @@ import {ActionSheet} from '../actionsheet'
 import {NewTab, NewTabItem} from '../tabs'
 import { BScroll} from  '../bscroll'
 import {Slider, SliderItem} from  '../slider'
-import { ListLoading } from '../tips'
+import { ListLoading,Loading1 } from '../tips'
 
 const install = function (Vue) {
     Vue.component(Layout.name,Layout)
@@ -41,6 +41,7 @@ const install = function (Vue) {
     Vue.component(Slider.name,Slider)
     Vue.component(SliderItem.name,SliderItem)
     Vue.component(ListLoading.name,ListLoading)
+    Vue.component(Loading1.name,Loading1)
 
     Vue.prototype.$dialog = {
         confirm: Confirm,

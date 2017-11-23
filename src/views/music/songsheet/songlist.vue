@@ -15,7 +15,11 @@
             songs: {
                 type: Array
             }
+        },
+        computed (){
+
         }
+
     }
 </script>
 

@@ -10,7 +10,7 @@
             </m-slider>
             <div style="height: 1rem;text-align: center; color: #f36;line-height: 1rem;font-size: 14px;"  >热门歌单推荐</div>
             <m-list theme="4">
-                <div  v-for="item in list" :key="item.content_id"  @click="linkTo(item.content_id)">
+                <div  v-for="item in list" :key="item.content_id"  @click="linkTo(item.content_id, item.title ,item.cover)">
                     <m-list-item>
                         <m-lazyload slot="img" :data-src="item.cover" noBgImage ></m-lazyload>
                         <span slot="title" style="font-size: 16px;font-weight: 600;" >{{item.username}}</span>
@@ -22,7 +22,7 @@
 
             </m-list>
         </m-bscroll>
-        <router-view/>
+        <router-view :title="title" :bgImage="bgImage" />
     </div>
 
 </template>
@@ -63,7 +63,9 @@
                         "type": 10014,
                         "username": "QQ音乐新歌推荐"
                     }
-                ]
+                ],
+                title: '',
+                bgImage: ''
             }
         },
         mounted(){
@@ -88,7 +90,9 @@
                 })
             },
 
-            linkTo (id) {
+            linkTo (id,title,bgImage) {
+                this.title = title
+                this.bgImage = bgImage
                 this.$router.push('/music/recommend/'+id)
             }
         }

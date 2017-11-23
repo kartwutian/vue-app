@@ -1,3 +1,5 @@
 import ListLoading from './src/loading.vue'
 
-export {ListLoading};
+import Loading1 from  './src/loading1.vue'
+
+export { ListLoading, Loading1 };

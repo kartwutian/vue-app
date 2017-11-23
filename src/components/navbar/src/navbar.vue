@@ -22,10 +22,7 @@
             title: String,
             fixed: Boolean,
             bgcolor: {
-                validator(value) {
-                    if(!value) return true;
-                    return $utils.isColor(value);
-                },
+                type: String,
                 default: '#FFF'
             },
             color: {
