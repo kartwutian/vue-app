@@ -185,8 +185,8 @@
                      padding: 7px 0;
                      margin: 0 auto;
                      text-align: center;
-                     border: 1px solid #0f0;
-                     color: #f36;
+                     border: 1px solid #35f5af;
+                     color: #35f5af;
                      border-radius: 100px;
                      font-size: 0;
                      .icon-play{

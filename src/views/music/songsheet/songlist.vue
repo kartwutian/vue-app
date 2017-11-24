@@ -3,7 +3,7 @@
         <ul>
             <li class="song-list-item" v-for="item in songs" :key="item.songname">
                 <h2 class="name">{{item.songname}}</h2>
-                <p class="desc">{{item.songorig}}</p>
+                <p class="desc">{{item.singer[0].name + ' | '+ (item.singer[1]?item.singer[1].name:'')+ ' ' +item.songorig}}</p>
             </li>
         </ul>
     </div>
@@ -16,7 +16,7 @@
                 type: Array
             }
         },
-        computed (){
+        computed: {
 
         }
 
@@ -30,11 +30,18 @@
         line-height: .5rem;
         .name{
             font-size: 14px;
-            color: #f36;
+            font-weight: normal;
+            color: #d65252;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
         .desc{
             font-size: 12px;
-            color: #666;
+            color: #c5baba;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
     }
 
