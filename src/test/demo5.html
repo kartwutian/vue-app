@@ -1,48 +1,30 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        html,body{
-            width: 100%;
-            height: 100%;
-        }
-        .box{
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        .header{
-            width: 100%;
-            height: 100px;
-        }
-        .main{
-            flex: 1;
-            background-color: #f36;
-            position: relative;
-        }
-
-
-    </style>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>标题</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <script src="http://moonjs.ga/dist/moon.js"></script>
 </head>
 <body>
-<div class="box">
-    <header class="header">123</header>
-    <div class="main">
-
-
+    <div id="app">
+        <p>{{ msg }}</p>
     </div>
-</div>
-<script>
-
-</script>
+    <script>
+        var app = new Moon({
+            el: "#app",
+            data: {
+                msg: "Hello Moon!"
+            }
+        });
+        console.log(app)
+        debugger
+        app.set('msg', "Changed Message!");
+    </script>
 </body>
 </html>
